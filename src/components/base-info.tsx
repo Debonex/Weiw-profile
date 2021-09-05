@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-09-03 23:45:41
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-04 01:54:09
+ * @Last Modified time: 2021-09-06 02:31:35
  */
 
 import { Component } from 'react'
@@ -48,41 +48,41 @@ const getStyles: FuncGetStyle = (theme?: Theme) => {
       backgroundColor: theme.baseInfo.bgColorMain
     },
     containerHeader: {
-      height: `2.5rem`,
+      height: 40,
       backgroundColor: theme.baseInfo.bgColorTitle,
       display: 'flex',
       alignItems: 'center',
-      paddingLeft: `1.25rem`,
-      fontSize: `1.25rem`,
+      paddingLeft: 20,
+      fontSize: 20,
       color: theme.baseInfo.colorTitle
     },
     containerBody: {
-      height: `10rem`,
+      height: 160,
       display: 'flex'
     },
     avatarImg: {
-      width: '7rem',
-      height: '7rem',
-      borderRadius: '.75rem'
+      width: 112,
+      height: 112,
+      borderRadius: 12
     },
     bodyLeft: {
       width: '50%',
       height: '100%',
       display: 'flex',
-      paddingLeft: '1rem',
-      paddingTop: '1rem'
+      paddingLeft: 16,
+      paddingTop: 16
     },
     bodyLeftInfo: {
       display: 'flex',
       flexDirection: 'column',
-      paddingLeft: '1rem'
+      paddingLeft: 16
     },
     username: {
-      fontSize: '1.5rem'
+      fontSize: 24
     },
     bio: {
-      fontSize: '.75rem',
-      marginTop: '.25rem'
+      fontSize: 12,
+      marginTop: 4
     }
   }
 }
