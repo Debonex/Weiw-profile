@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-09-03 13:02:32
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-06 02:30:15
+ * @Last Modified time: 2021-09-07 01:36:58
  */
 
 import type { NextApiRequest, NextApiResponse } from 'next'
@@ -10,9 +10,8 @@ import { renderToString } from 'react-dom/server'
 import { defaultBaseInfoProps } from '../../src/components/base-info'
 
 import Profile from '../../src/components/profile'
-import { fetchBaseInfo } from '../../src/fetchers/profile-fetcher'
+import { renderBaseInfo } from '../../src/fetchers/profile-render'
 import { ProfileProps } from '../../src/types/props'
-import { urlToBase64 } from '../../src/utils/requests'
 
 const defaultProfileProps: ProfileProps = {
   username: '',
@@ -22,27 +21,20 @@ const defaultProfileProps: ProfileProps = {
   baseInfo: defaultBaseInfoProps
 }
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
-  const query: ProfileProps = { ...defaultProfileProps, ...req.query }
+export default function handler(req: NextApiRequest, res: NextApiResponse) {
+  const profileProps: ProfileProps = { ...defaultProfileProps, ...req.query }
 
-  if (query.baseInfoShow) {
-    fetchBaseInfo(query.username).then((resBaseInfo) => {
-      if (resBaseInfo.status === 200) {
-        urlToBase64(resBaseInfo.data.avatar_url).then((base64) => {
-          query.baseInfo = {
-            username: query.username,
-            name: resBaseInfo.data.name,
-            avatarUrl: `data:image/png;base64,${base64}`,
-            bio: resBaseInfo.data.bio
-          }
-          res
-            .writeHead(200, { 'Content-Type': 'image/svg+xml' })
-            .end(renderToString(<Profile {...query} />))
-        })
-      }
-    })
+  const promiseBaseInfo = renderBaseInfo(profileProps)
+
+  Promise.all([promiseBaseInfo]).then((results) => {
+    if (results[0])
+      res.status(200).end(renderToString(<Profile {...profileProps}></Profile>))
+    else res.end('something wrong.')
+  })
+}
+
+export const config = {
+  api: {
+    externalResolver: true
   }
 }
