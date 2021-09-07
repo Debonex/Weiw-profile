@@ -7,7 +7,7 @@
 import { ProfileProps } from '../types/props'
 import { githubAPI, urlToBase64 } from '../utils/requests'
 
-export async function renderBaseInfo(
+export async function tellBaseInfo(
   profileProps: ProfileProps
 ): Promise<boolean> {
   if (!profileProps.baseInfoShow) return true
