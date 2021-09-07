@@ -10,7 +10,7 @@ import { renderToString } from 'react-dom/server'
 import { defaultBaseInfoProps } from '../../src/components/base-info'
 
 import Profile from '../../src/components/profile'
-import { renderBaseInfo } from '../../src/fetchers/profile-render'
+import { tellBaseInfo } from '../../src/tellers/profile-teller'
 import { ProfileProps } from '../../src/types/props'
 
 const defaultProfileProps: ProfileProps = {
@@ -24,7 +24,7 @@ const defaultProfileProps: ProfileProps = {
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const profileProps: ProfileProps = { ...defaultProfileProps, ...req.query }
 
-  const promiseBaseInfo = renderBaseInfo(profileProps)
+  const promiseBaseInfo = tellBaseInfo(profileProps)
 
   Promise.all([promiseBaseInfo]).then((results) => {
     if (results[0])
