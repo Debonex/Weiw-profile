@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-09-03 23:45:41
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-06 02:31:35
+ * @Last Modified time: 2021-09-08 18:04:00
  */
 
 import { Component } from 'react'
@@ -15,7 +15,8 @@ export const defaultBaseInfoProps: BaseInfoProps = {
   username: '',
   name: '',
   avatarUrl: '',
-  bio: ''
+  bio: '',
+  langDict: {}
 }
 
 class BaseInfo extends Component<BaseInfoProps> {

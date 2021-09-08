@@ -2,10 +2,14 @@
  * @Author: Debonex
  * @Date: 2021-09-03 23:52:53
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-06 02:21:13
+ * @Last Modified time: 2021-09-08 17:26:23
  */
 
-import axios, { AxiosInstance } from 'axios'
+import axios, {
+  AxiosBasicCredentials,
+  AxiosInstance,
+  AxiosRequestConfig
+} from 'axios'
 import { config } from 'dotenv'
 
 import { IncomingMessage } from 'node:http'
@@ -13,26 +17,35 @@ import https from 'https'
 
 const envConfig = config().parsed
 
-let auth
-if (envConfig === undefined) {
-  console.error('get .env config failed, please check your .env file.')
-  auth = {}
-} else {
+let auth: AxiosBasicCredentials
+if (envConfig) {
   auth = {
     username: envConfig.GITHUB_USERNAME,
     password: envConfig?.OATH
   }
 }
+// TODO reasonable?
+else {
+  auth = {
+    username: '',
+    password: ''
+  }
+}
 
 const instanceGithubAPI: AxiosInstance = axios.create({
   baseURL: 'https://api.github.com/',
-  timeout: 10000,
-  ...auth
+  timeout: 10000
 })
 
+// TODO how to set auth in axios.create()?
 export const githubAPI = {
   get: (url: string, data = {}, config = {}) => {
-    return instanceGithubAPI.get(url, { ...{ params: data }, ...config })
+    const requestConfig: AxiosRequestConfig = {
+      ...{ params: data },
+      ...config,
+      auth
+    }
+    return instanceGithubAPI.get(url, requestConfig)
   },
   post: (url: string, data = {}, config = {}) => {
     return instanceGithubAPI.post(url, data, config)

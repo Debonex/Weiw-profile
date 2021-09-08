@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-09-03 13:02:32
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-07 01:36:58
+ * @Last Modified time: 2021-09-08 18:05:58
  */
 
 import type { NextApiRequest, NextApiResponse } from 'next'
@@ -10,7 +10,7 @@ import { renderToString } from 'react-dom/server'
 import { defaultBaseInfoProps } from '../../src/components/base-info'
 
 import Profile from '../../src/components/profile'
-import { tellBaseInfo } from '../../src/tellers/profile-teller'
+import { tellBaseInfo } from '../../src/tellers/base-info-teller'
 import { ProfileProps } from '../../src/types/props'
 
 const defaultProfileProps: ProfileProps = {
