@@ -2,16 +2,18 @@
  * @Author: Debonex
  * @Date: 2021-09-03 13:01:51
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-06 02:25:03
+ * @Last Modified time: 2021-09-09 01:06:22
  */
 
 import { Component } from 'react'
 import { base } from '../themes'
 import { Theme } from '../types'
 import { FuncGetStyle } from '../types/func'
-import { ProfileProps } from '../types/props'
 
-import BaseInfo from './base-info'
+import BaseInfo, {
+  BaseInfoProps,
+  defaultBaseInfoProps
+} from './cards/base-info'
 
 const getStyles: FuncGetStyle = (theme?: Theme) => {
   !theme && (theme = base)
@@ -21,6 +23,22 @@ const getStyles: FuncGetStyle = (theme?: Theme) => {
       color: theme.colorText
     }
   }
+}
+
+export type ProfileProps = {
+  username: string
+  width: number
+  height: number
+  baseInfoShow: string | boolean
+  baseInfo: BaseInfoProps
+}
+
+export const defaultProfileProps: ProfileProps = {
+  username: '',
+  width: 600,
+  height: 200,
+  baseInfoShow: true,
+  baseInfo: defaultBaseInfoProps
 }
 
 class Profile extends Component<ProfileProps> {
