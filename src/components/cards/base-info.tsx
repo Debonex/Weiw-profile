@@ -2,14 +2,21 @@
  * @Author: Debonex
  * @Date: 2021-09-03 23:45:41
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-08 18:04:00
+ * @Last Modified time: 2021-09-09 01:09:06
  */
 
 import { Component } from 'react'
-import { base } from '../themes'
-import { Theme } from '../types'
-import { FuncGetStyle } from '../types/func'
-import { BaseInfoProps } from '../types/props'
+import { base } from '../../themes'
+import { Theme } from '../../types'
+import { FuncGetStyle } from '../../types/func'
+
+export type BaseInfoProps = {
+  username: string
+  name: string
+  avatarUrl: string
+  bio: string
+  langDict: Record<string, number>
+}
 
 export const defaultBaseInfoProps: BaseInfoProps = {
   username: '',
@@ -42,6 +49,7 @@ class BaseInfo extends Component<BaseInfoProps> {
   }
 }
 
+// #region styles
 const getStyles: FuncGetStyle = (theme?: Theme) => {
   !theme && (theme = base)
   return {
@@ -87,5 +95,6 @@ const getStyles: FuncGetStyle = (theme?: Theme) => {
     }
   }
 }
+// #endregion
 
 export default BaseInfo

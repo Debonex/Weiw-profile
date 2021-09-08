@@ -2,10 +2,10 @@
  * @Author: Debonex
  * @Date: 2021-09-04 00:52:13
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-08 18:03:03
+ * @Last Modified time: 2021-09-09 01:04:29
  */
 import { AxiosResponse } from 'axios'
-import { ProfileProps } from '../types/props'
+import { ProfileProps } from '../components/profile'
 import { githubAPI, urlToBase64 } from '../utils/requests'
 
 export async function tellBaseInfo(
