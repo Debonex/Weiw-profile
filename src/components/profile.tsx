@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-09-03 13:01:51
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-09 01:06:22
+ * @Last Modified time: 2021-09-09 18:31:45
  */
 
 import { Component } from 'react'
@@ -10,10 +10,10 @@ import { base } from '../themes'
 import { Theme } from '../types'
 import { FuncGetStyle } from '../types/func'
 
-import BaseInfo, {
-  BaseInfoProps,
-  defaultBaseInfoProps
-} from './cards/base-info'
+import GithubInfo, {
+  GithubInfoProps,
+  defaultGithubInfoProps
+} from './cards/github-info'
 
 const getStyles: FuncGetStyle = (theme?: Theme) => {
   !theme && (theme = base)
@@ -29,16 +29,16 @@ export type ProfileProps = {
   username: string
   width: number
   height: number
-  baseInfoShow: string | boolean
-  baseInfo: BaseInfoProps
+  githubInfoShow: string | boolean
+  githubInfo: GithubInfoProps
 }
 
 export const defaultProfileProps: ProfileProps = {
   username: '',
   width: 600,
   height: 200,
-  baseInfoShow: true,
-  baseInfo: defaultBaseInfoProps
+  githubInfoShow: true,
+  githubInfo: defaultGithubInfoProps
 }
 
 class Profile extends Component<ProfileProps> {
@@ -51,8 +51,8 @@ class Profile extends Component<ProfileProps> {
         height={this.props.height}
         viewBox={`0 0 ${this.props.width} ${this.props.height}`}
         style={styles.global}>
-        {!!this.props.baseInfoShow && this.props.baseInfoShow !== 'false' && (
-          <BaseInfo {...this.props.baseInfo} />
+        {!!this.props.githubInfoShow && this.props.githubInfoShow !== 'false' && (
+          <GithubInfo {...this.props.githubInfo} />
         )}
       </svg>
     )

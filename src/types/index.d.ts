@@ -16,7 +16,7 @@ declare module 'react' {
 export type Theme = {
   fontFamily?: string
   colorText: string
-  baseInfo: {
+  githubInfo: {
     bgColorMain: string
     bgColorTitle: string
     colorTitle?: string
