@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-09-03 23:45:41
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-09 14:02:05
+ * @Last Modified time: 2021-09-09 15:24:05
  */
 
 import { Component } from 'react'
@@ -95,7 +95,8 @@ const getStyles: FuncGetStyle = (theme?: Theme) => {
       marginTop: 4
     },
     bodyRight: {
-      width: '50%'
+      width: '50%',
+      paddingLeft: 16
     }
   }
 }
