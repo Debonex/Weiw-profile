@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-09-03 23:45:41
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-09 15:24:05
+ * @Last Modified time: 2021-09-09 18:33:03
  */
 
 import { Component } from 'react'
@@ -11,7 +11,7 @@ import { Theme } from '../../types'
 import { FuncGetStyle } from '../../types/func'
 import LangsCard from '../common/langsCard'
 
-export type BaseInfoProps = {
+export type GithubInfoProps = {
   username: string
   name: string
   avatarUrl: string
@@ -19,7 +19,7 @@ export type BaseInfoProps = {
   langDict: Record<string, number>
 }
 
-export const defaultBaseInfoProps: BaseInfoProps = {
+export const defaultGithubInfoProps: GithubInfoProps = {
   username: '',
   name: '',
   avatarUrl: '',
@@ -27,13 +27,13 @@ export const defaultBaseInfoProps: BaseInfoProps = {
   langDict: {}
 }
 
-class BaseInfo extends Component<BaseInfoProps> {
+class GithubInfo extends Component<GithubInfoProps> {
   render() {
     const _ = getStyles()
     return (
       <foreignObject width="100%" height="100%">
         <div style={_.containerMain} xmlns="http://www.w3.org/1999/xhtml">
-          <div style={_.containerHeader}>Coder info</div>
+          <div style={_.containerHeader}>Github info</div>
           <div style={_.containerBody}>
             <div style={_.bodyLeft}>
               <img style={_.avatarImg} src={this.props.avatarUrl} alt="" />
@@ -57,16 +57,16 @@ const getStyles: FuncGetStyle = (theme?: Theme) => {
   !theme && (theme = base)
   return {
     containerMain: {
-      backgroundColor: theme.baseInfo.bgColorMain
+      backgroundColor: theme.githubInfo.bgColorMain
     },
     containerHeader: {
       height: 40,
-      backgroundColor: theme.baseInfo.bgColorTitle,
+      backgroundColor: theme.githubInfo.bgColorTitle,
       display: 'flex',
       alignItems: 'center',
       paddingLeft: 20,
       fontSize: 20,
-      color: theme.baseInfo.colorTitle
+      color: theme.githubInfo.colorTitle
     },
     containerBody: {
       height: 160,
@@ -102,4 +102,4 @@ const getStyles: FuncGetStyle = (theme?: Theme) => {
 }
 // #endregion
 
-export default BaseInfo
+export default GithubInfo

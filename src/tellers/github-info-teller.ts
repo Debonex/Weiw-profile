@@ -2,28 +2,28 @@
  * @Author: Debonex
  * @Date: 2021-09-04 00:52:13
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-09 01:04:29
+ * @Last Modified time: 2021-09-09 18:32:43
  */
 import { AxiosResponse } from 'axios'
 import { ProfileProps } from '../components/profile'
 import { githubAPI, urlToBase64 } from '../utils/requests'
 
-export async function tellBaseInfo(
+export async function tellGithubInfo(
   profileProps: ProfileProps
 ): Promise<boolean> {
-  if (!profileProps.baseInfoShow) return true
-  profileProps.baseInfo.username = profileProps.username
+  if (!profileProps.githubInfoShow) return true
+  profileProps.githubInfo.username = profileProps.username
   const leftInfo = githubAPI
     .get(`/users/${profileProps.username}`)
-    .then((resBaseInfo) => {
-      profileProps.baseInfo.name = resBaseInfo.data.name
-      profileProps.baseInfo.bio = resBaseInfo.data.bio
-      if (resBaseInfo.status === 200) {
-        return urlToBase64(resBaseInfo.data.avatar_url)
+    .then((resGithubInfo) => {
+      profileProps.githubInfo.name = resGithubInfo.data.name
+      profileProps.githubInfo.bio = resGithubInfo.data.bio
+      if (resGithubInfo.status === 200) {
+        return urlToBase64(resGithubInfo.data.avatar_url)
       }
     })
     .then((base64) => {
-      profileProps.baseInfo.avatarUrl = `data:image/png;base64,${base64}`
+      profileProps.githubInfo.avatarUrl = `data:image/png;base64,${base64}`
       return true
     })
 
@@ -47,7 +47,7 @@ export async function tellBaseInfo(
             else langDict[wt] = result.data[wt]
           }
         })
-        profileProps.baseInfo.langDict = langDict
+        profileProps.githubInfo.langDict = langDict
         return true
       })
     })

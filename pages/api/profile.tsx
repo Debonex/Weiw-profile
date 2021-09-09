@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-09-03 13:02:32
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-09 01:06:34
+ * @Last Modified time: 2021-09-09 18:31:33
  */
 
 import type { NextApiRequest, NextApiResponse } from 'next'
@@ -12,14 +12,14 @@ import Profile, {
   defaultProfileProps,
   ProfileProps
 } from '../../src/components/profile'
-import { tellBaseInfo } from '../../src/tellers/base-info-teller'
+import { tellGithubInfo } from '../../src/tellers/github-info-teller'
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const profileProps: ProfileProps = { ...defaultProfileProps, ...req.query }
 
-  const promiseBaseInfo = tellBaseInfo(profileProps)
+  const promiseGithubInfo = tellGithubInfo(profileProps)
 
-  Promise.all([promiseBaseInfo]).then((results) => {
+  Promise.all([promiseGithubInfo]).then((results) => {
     if (results[0])
       res.status(200).end(renderToString(<Profile {...profileProps}></Profile>))
     else res.end('something wrong.')
