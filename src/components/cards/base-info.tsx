@@ -2,13 +2,14 @@
  * @Author: Debonex
  * @Date: 2021-09-03 23:45:41
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-09 01:09:06
+ * @Last Modified time: 2021-09-09 14:02:05
  */
 
 import { Component } from 'react'
 import { base } from '../../themes'
 import { Theme } from '../../types'
 import { FuncGetStyle } from '../../types/func'
+import LangsCard from '../common/langsCard'
 
 export type BaseInfoProps = {
   username: string
@@ -41,7 +42,9 @@ class BaseInfo extends Component<BaseInfoProps> {
                 <div style={_.bio}>{this.props.bio}</div>
               </div>
             </div>
-            <div></div>
+            <div style={_.bodyRight}>
+              <LangsCard langDict={this.props.langDict} />
+            </div>
           </div>
         </div>
       </foreignObject>
@@ -67,7 +70,8 @@ const getStyles: FuncGetStyle = (theme?: Theme) => {
     },
     containerBody: {
       height: 160,
-      display: 'flex'
+      display: 'flex',
+      padding: 16
     },
     avatarImg: {
       width: 112,
@@ -76,10 +80,7 @@ const getStyles: FuncGetStyle = (theme?: Theme) => {
     },
     bodyLeft: {
       width: '50%',
-      height: '100%',
-      display: 'flex',
-      paddingLeft: 16,
-      paddingTop: 16
+      display: 'flex'
     },
     bodyLeftInfo: {
       display: 'flex',
@@ -92,6 +93,9 @@ const getStyles: FuncGetStyle = (theme?: Theme) => {
     bio: {
       fontSize: 12,
       marginTop: 4
+    },
+    bodyRight: {
+      width: '50%'
     }
   }
 }
