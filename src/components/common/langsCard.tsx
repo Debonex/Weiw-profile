@@ -2,14 +2,14 @@
  * @Author: Debonex
  * @Date: 2021-09-09 10:13:24
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-10 12:57:41
+ * @Last Modified time: 2021-09-10 14:47:46
  */
 
 import React, { Component } from 'react'
 import { base } from '../../themes'
 import { Theme } from '../../types'
 import { FuncGetStyle } from '../../types/func'
-import langColors from '../../utils/langColor'
+import langColors from '../../assets/langColor'
 import LangsBar, { LangRatio } from './langsBar'
 
 export type LangsCardProps = {

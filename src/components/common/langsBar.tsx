@@ -2,11 +2,11 @@
  * @Author: Debonex
  * @Date: 2021-09-09 00:18:01
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-09 14:01:49
+ * @Last Modified time: 2021-09-10 14:47:46
  */
 
 import { Component } from 'react'
-import langColors from '../../utils/langColor'
+import langColors from '../../assets/langColor'
 
 export type LangsBarProps = {
   langRatioArr: Array<LangRatio>
