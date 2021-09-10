@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-09-03 13:02:32
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-10 13:31:54
+ * @Last Modified time: 2021-09-10 13:45:24
  */
 
 import type { NextApiRequest, NextApiResponse } from 'next'
@@ -22,7 +22,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const promiseOsuInfo = tellOsuInfo(profileProps)
 
   Promise.all([promiseGithubInfo, promiseOsuInfo]).then((results) => {
-    if (results[0])
+    if (results[0] && results[1])
       res.status(200).end(renderToString(<Profile {...profileProps}></Profile>))
     else res.end('something wrong.')
   })

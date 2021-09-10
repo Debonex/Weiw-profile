@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-09-04 00:52:13
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-10 13:37:53
+ * @Last Modified time: 2021-09-10 14:24:02
  */
 import { AxiosResponse } from 'axios'
 import { ProfileProps } from '../components/profile'
@@ -13,6 +13,7 @@ export async function tellGithubInfo(
 ): Promise<boolean> {
   if (!profileProps.githubInfoShow) return true
   profileProps.githubInfo.username = profileProps.username
+  
   const leftInfo = githubAPI
     .get(`/users/${profileProps.username}`)
     .then((res) => {
