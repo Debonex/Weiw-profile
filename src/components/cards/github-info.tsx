@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-09-03 23:45:41
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-10 12:41:13
+ * @Last Modified time: 2021-09-10 16:26:15
  */
 
 import { Component } from 'react'
@@ -55,19 +55,19 @@ const getStyles: FuncGetStyle = (theme?: Theme) => {
   !theme && (theme = base)
   return {
     containerMain: {
-      backgroundColor: theme.githubInfo.bgColorMain,
+      backgroundColor: theme.bgColorMain,
       height: 200,
       display: 'flex',
       flexDirection: 'column'
     },
     containerHeader: {
       height: 40,
-      backgroundColor: theme.githubInfo.bgColorTitle,
+      backgroundColor: theme.bgColorTitle,
       display: 'flex',
       alignItems: 'center',
       paddingLeft: 20,
       fontSize: 20,
-      color: theme.githubInfo.colorTitle
+      color: theme.colorText
     },
     containerBody: {
       display: 'flex',

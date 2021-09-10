@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-09-03 13:03:21
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-04 00:30:09
+ * @Last Modified time: 2021-09-10 16:25:28
  */
 
 import { CSSProperties } from 'react'
@@ -16,9 +16,6 @@ declare module 'react' {
 export type Theme = {
   fontFamily?: string
   colorText: string
-  githubInfo: {
-    bgColorMain: string
-    bgColorTitle: string
-    colorTitle?: string
-  }
+  bgColorMain: string
+  bgColorTitle: string
 }

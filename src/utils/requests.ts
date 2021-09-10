@@ -3,7 +3,7 @@
  * @Author: Debonex
  * @Date: 2021-09-03 23:52:53
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-10 13:35:28
+ * @Last Modified time: 2021-09-10 16:28:52
  */
 
 import axios, {
@@ -34,7 +34,7 @@ else {
 }
 
 const commonInstance: AxiosInstance = axios.create({
-  timeout: 5000
+  timeout: 10000
 })
 
 export const commonRequests = {
@@ -48,7 +48,7 @@ export const commonRequests = {
 
 const githubAPIInstance: AxiosInstance = axios.create({
   baseURL: 'https://api.github.com/',
-  timeout: 5000
+  timeout: 10000
 })
 
 export const githubAPI = {
