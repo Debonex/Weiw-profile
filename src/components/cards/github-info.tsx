@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-09-03 23:45:41
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-09 18:33:03
+ * @Last Modified time: 2021-09-10 12:41:13
  */
 
 import { Component } from 'react'
@@ -31,23 +31,21 @@ class GithubInfo extends Component<GithubInfoProps> {
   render() {
     const _ = getStyles()
     return (
-      <foreignObject width="100%" height="100%">
-        <div style={_.containerMain} xmlns="http://www.w3.org/1999/xhtml">
-          <div style={_.containerHeader}>Github info</div>
-          <div style={_.containerBody}>
-            <div style={_.bodyLeft}>
-              <img style={_.avatarImg} src={this.props.avatarUrl} alt="" />
-              <div style={_.bodyLeftInfo}>
-                <div style={_.username}>{this.props.username}</div>
-                <div style={_.bio}>{this.props.bio}</div>
-              </div>
-            </div>
-            <div style={_.bodyRight}>
-              <LangsCard langDict={this.props.langDict} />
+      <div style={_.containerMain}>
+        <div style={_.containerHeader}>Github info</div>
+        <div style={_.containerBody}>
+          <div style={_.bodyLeft}>
+            <img style={_.avatarImg} src={this.props.avatarUrl} alt="" />
+            <div style={_.bodyLeftInfo}>
+              <div style={_.username}>{this.props.username}</div>
+              <div style={_.bio}>{this.props.bio}</div>
             </div>
           </div>
+          <div style={_.bodyRight}>
+            <LangsCard langDict={this.props.langDict} />
+          </div>
         </div>
-      </foreignObject>
+      </div>
     )
   }
 }
@@ -57,7 +55,10 @@ const getStyles: FuncGetStyle = (theme?: Theme) => {
   !theme && (theme = base)
   return {
     containerMain: {
-      backgroundColor: theme.githubInfo.bgColorMain
+      backgroundColor: theme.githubInfo.bgColorMain,
+      height: 200,
+      display: 'flex',
+      flexDirection: 'column'
     },
     containerHeader: {
       height: 40,
@@ -69,7 +70,6 @@ const getStyles: FuncGetStyle = (theme?: Theme) => {
       color: theme.githubInfo.colorTitle
     },
     containerBody: {
-      height: 160,
       display: 'flex',
       padding: 16
     },

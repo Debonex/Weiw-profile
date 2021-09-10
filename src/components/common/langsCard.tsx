@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-09-09 10:13:24
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-09 14:52:52
+ * @Last Modified time: 2021-09-10 12:57:41
  */
 
 import React, { Component } from 'react'
@@ -87,7 +87,7 @@ const getStyles: FuncGetStyle = (theme?: Theme) => {
     },
     containerBadge: {
       display: 'flex',
-      marginTop: 10,
+      marginTop: 12,
       minWidth: '50%',
       fontSize: 12,
       alignItems: 'center'

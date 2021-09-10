@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-09-03 23:52:53
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-08 17:26:23
+ * @Last Modified time: 2021-09-10 11:54:20
  */
 
 import axios, {
@@ -21,7 +21,7 @@ let auth: AxiosBasicCredentials
 if (envConfig) {
   auth = {
     username: envConfig.GITHUB_USERNAME,
-    password: envConfig?.OATH
+    password: envConfig?.GITHUB_OATH
   }
 }
 // TODO reasonable?
