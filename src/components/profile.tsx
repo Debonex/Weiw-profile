@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-09-03 13:01:51
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-10 12:55:35
+ * @Last Modified time: 2021-09-10 13:29:32
  */
 
 import { Component } from 'react'
@@ -32,6 +32,7 @@ export type ProfileProps = {
   githubInfoShow: string | boolean
   githubInfo: GithubInfoProps
   osuInfoShow: string | boolean
+  osuUsername: string
   osuInfo: OsuInfoProps
 }
 
@@ -41,6 +42,7 @@ export const defaultProfileProps: ProfileProps = {
   githubInfoShow: true,
   githubInfo: defaultGithubInfoProps,
   osuInfoShow: false,
+  osuUsername: '',
   osuInfo: defaultOsuInfoProps
 }
 
