@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-09-03 13:01:51
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-09 18:31:45
+ * @Last Modified time: 2021-09-10 12:55:35
  */
 
 import { Component } from 'react'
@@ -14,6 +14,7 @@ import GithubInfo, {
   GithubInfoProps,
   defaultGithubInfoProps
 } from './cards/github-info'
+import OsuInfo, { defaultOsuInfoProps, OsuInfoProps } from './cards/osu-info'
 
 const getStyles: FuncGetStyle = (theme?: Theme) => {
   !theme && (theme = base)
@@ -28,32 +29,51 @@ const getStyles: FuncGetStyle = (theme?: Theme) => {
 export type ProfileProps = {
   username: string
   width: number
-  height: number
   githubInfoShow: string | boolean
   githubInfo: GithubInfoProps
+  osuInfoShow: string | boolean
+  osuInfo: OsuInfoProps
 }
 
 export const defaultProfileProps: ProfileProps = {
   username: '',
   width: 600,
-  height: 200,
   githubInfoShow: true,
-  githubInfo: defaultGithubInfoProps
+  githubInfo: defaultGithubInfoProps,
+  osuInfoShow: false,
+  osuInfo: defaultOsuInfoProps
 }
 
-class Profile extends Component<ProfileProps> {
+class Profile extends Component<ProfileProps, { height: number }> {
+  constructor(props: ProfileProps) {
+    super(props)
+    let height = 0
+    if (props.githubInfoShow) height += 200
+    if (props.osuInfoShow) height += 200
+    this.state = {
+      height: height
+    }
+  }
+
   render() {
     const styles = getStyles()
     return (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width={this.props.width}
-        height={this.props.height}
-        viewBox={`0 0 ${this.props.width} ${this.props.height}`}
+        height={this.state.height}
         style={styles.global}>
-        {!!this.props.githubInfoShow && this.props.githubInfoShow !== 'false' && (
-          <GithubInfo {...this.props.githubInfo} />
-        )}
+        <foreignObject width="100%" height="100%">
+          <div xmlns="http://www.w3.org/1999/xhtml">
+            {!!this.props.githubInfoShow &&
+              this.props.githubInfoShow !== 'false' && (
+                <GithubInfo {...this.props.githubInfo} />
+              )}
+            {!!this.props.osuInfoShow && this.props.osuInfoShow !== 'false' && (
+              <OsuInfo {...this.props.osuInfo} />
+            )}
+          </div>
+        </foreignObject>
       </svg>
     )
   }
