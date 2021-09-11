@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-09-09 10:13:24
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-10 16:43:33
+ * @Last Modified time: 2021-09-10 18:05:33
  */
 
 import React, { Component } from 'react'
@@ -10,7 +10,7 @@ import { base } from '../../themes'
 import { Theme } from '../../types'
 import { FuncGetStyle } from '../../types/func'
 import langColors from '../../assets/ts/langColor'
-import LangsBar, { LangRatio } from './langsBar'
+import LangsBar, { LangRatio } from './langs-bar'
 
 export type LangsCardProps = {
   langDict: Record<string, number>

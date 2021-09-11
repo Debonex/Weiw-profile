@@ -2,14 +2,14 @@
  * @Author: Debonex
  * @Date: 2021-09-03 23:45:41
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-10 16:26:15
+ * @Last Modified time: 2021-09-10 18:05:40
  */
 
 import { Component } from 'react'
 import { base } from '../../themes'
 import { Theme } from '../../types'
 import { FuncGetStyle } from '../../types/func'
-import LangsCard from '../common/langsCard'
+import LangsCard from '../common/langs-card'
 
 export type GithubInfoProps = {
   username: string
