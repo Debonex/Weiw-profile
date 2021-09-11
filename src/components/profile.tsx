@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-09-03 13:01:51
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-10 13:29:32
+ * @Last Modified time: 2021-09-11 15:33:19
  */
 
 import { Component } from 'react'
@@ -27,9 +27,9 @@ const getStyles: FuncGetStyle = (theme?: Theme) => {
 }
 
 export type ProfileProps = {
-  username: string
   width: number
   githubInfoShow: string | boolean
+  githubUsername: string
   githubInfo: GithubInfoProps
   osuInfoShow: string | boolean
   osuUsername: string
@@ -37,9 +37,9 @@ export type ProfileProps = {
 }
 
 export const defaultProfileProps: ProfileProps = {
-  username: '',
   width: 600,
   githubInfoShow: true,
+  githubUsername: '',
   githubInfo: defaultGithubInfoProps,
   osuInfoShow: false,
   osuUsername: '',

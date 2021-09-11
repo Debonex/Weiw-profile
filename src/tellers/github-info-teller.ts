@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-09-04 00:52:13
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-10 14:24:02
+ * @Last Modified time: 2021-09-11 15:33:20
  */
 import { AxiosResponse } from 'axios'
 import { ProfileProps } from '../components/profile'
@@ -12,10 +12,10 @@ export async function tellGithubInfo(
   profileProps: ProfileProps
 ): Promise<boolean> {
   if (!profileProps.githubInfoShow) return true
-  profileProps.githubInfo.username = profileProps.username
+  profileProps.githubInfo.githubUsername = profileProps.githubUsername
   
   const leftInfo = githubAPI
-    .get(`/users/${profileProps.username}`)
+    .get(`/users/${profileProps.githubUsername}`)
     .then((res) => {
       profileProps.githubInfo.name = res.data.name
       profileProps.githubInfo.bio = res.data.bio
@@ -29,7 +29,7 @@ export async function tellGithubInfo(
     })
 
   const topLangs = githubAPI
-    .get(`/users/${profileProps.username}/repos`)
+    .get(`/users/${profileProps.githubUsername}/repos`)
     .then((res) => {
       if (res.status === 200) {
         const langDict: Record<string, number> = {}

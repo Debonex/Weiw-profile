@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-09-03 23:45:41
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-10 18:05:40
+ * @Last Modified time: 2021-09-11 15:32:21
  */
 
 import { Component } from 'react'
@@ -12,7 +12,7 @@ import { FuncGetStyle } from '../../types/func'
 import LangsCard from '../common/langs-card'
 
 export type GithubInfoProps = {
-  username: string
+  githubUsername: string
   name: string
   avatarUrl: string
   bio: string
@@ -20,7 +20,7 @@ export type GithubInfoProps = {
 }
 
 export const defaultGithubInfoProps: GithubInfoProps = {
-  username: '',
+  githubUsername: '',
   name: '',
   avatarUrl: '',
   bio: '',
@@ -37,7 +37,7 @@ class GithubInfo extends Component<GithubInfoProps> {
           <div style={_.bodyLeft}>
             <img style={_.avatarImg} src={this.props.avatarUrl} alt="" />
             <div style={_.bodyLeftInfo}>
-              <div style={_.username}>{this.props.username}</div>
+              <div style={_.username}>{this.props.githubUsername}</div>
               <div style={_.bio}>{this.props.bio}</div>
             </div>
           </div>
