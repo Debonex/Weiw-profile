@@ -6,6 +6,6 @@ This is a project for learning React and typescript. I'm quite not familiar with
 
 ## example
 
-```<img src="https://weiw-profile-debonex.vercel.app/api/profile?username=Debonex" width="75%" />```
+```<img src="https://weiw-profile-debonex.vercel.app/api/profile?githubUsername=Debonex&osuInfoShow=true&osuUsername=Debonet" width="75%" />```
 
-<img src="https://weiw-profile-debonex.vercel.app/api/profile?username=Debonex" width="75%" />
+<img src="https://weiw-profile-debonex.vercel.app/api/profile?githubUsername=Debonex&osuInfoShow=true&osuUsername=Debonet" width="75%" />
