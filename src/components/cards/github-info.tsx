@@ -2,52 +2,50 @@
  * @Author: Debonex
  * @Date: 2021-09-03 23:45:41
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-09 15:24:05
+ * @Last Modified time: 2021-09-12 02:40:37
  */
 
 import { Component } from 'react'
 import { base } from '../../themes'
 import { Theme } from '../../types'
 import { FuncGetStyle } from '../../types/func'
-import LangsCard from '../common/langsCard'
+import LangsCard from '../common/langs-card'
 
-export type BaseInfoProps = {
-  username: string
+export type GithubInfoProps = {
+  githubUsername: string
   name: string
   avatarUrl: string
   bio: string
   langDict: Record<string, number>
 }
 
-export const defaultBaseInfoProps: BaseInfoProps = {
-  username: '',
+export const defaultGithubInfoProps: GithubInfoProps = {
+  githubUsername: '',
   name: '',
   avatarUrl: '',
   bio: '',
   langDict: {}
 }
 
-class BaseInfo extends Component<BaseInfoProps> {
+class GithubInfo extends Component<GithubInfoProps> {
   render() {
     const _ = getStyles()
     return (
-      <foreignObject width="100%" height="100%">
-        <div style={_.containerMain} xmlns="http://www.w3.org/1999/xhtml">
-          <div style={_.containerHeader}>Coder info</div>
-          <div style={_.containerBody}>
-            <div style={_.bodyLeft}>
-              <img style={_.avatarImg} src={this.props.avatarUrl} alt="" />
-              <div style={_.bodyLeftInfo}>
-                <div style={_.username}>{this.props.username}</div>
-                <div style={_.bio}>{this.props.bio}</div>
-              </div>
-            </div>
-            <div style={_.bodyRight}>
-              <LangsCard langDict={this.props.langDict} />
+      <div style={_.containerMain}>
+        <div style={_.containerHeader}>Github info</div>
+        <div style={_.containerBody}>
+          <div style={_.bodyLeft}>
+            <img style={_.avatarImg} src={this.props.avatarUrl} alt="" />
+            <div style={_.bodyLeftInfo}>
+              <div style={_.username}>{this.props.githubUsername}</div>
+              <div style={_.bio}>{this.props.bio}</div>
             </div>
           </div>
+          <div style={_.bodyRight}>
+            <LangsCard langDict={this.props.langDict} />
+          </div>
         </div>
-      </foreignObject>
+      </div>
     )
   }
 }
@@ -57,19 +55,21 @@ const getStyles: FuncGetStyle = (theme?: Theme) => {
   !theme && (theme = base)
   return {
     containerMain: {
-      backgroundColor: theme.baseInfo.bgColorMain
+      backgroundColor: theme.bgColorMain,
+      height: 200,
+      display: 'flex',
+      flexDirection: 'column'
     },
     containerHeader: {
       height: 40,
-      backgroundColor: theme.baseInfo.bgColorTitle,
+      backgroundColor: theme.bgColorTitle,
       display: 'flex',
       alignItems: 'center',
       paddingLeft: 20,
       fontSize: 20,
-      color: theme.baseInfo.colorTitle
+      color: theme.colorText
     },
     containerBody: {
-      height: 160,
       display: 'flex',
       padding: 16
     },
@@ -102,4 +102,4 @@ const getStyles: FuncGetStyle = (theme?: Theme) => {
 }
 // #endregion
 
-export default BaseInfo
+export default GithubInfo

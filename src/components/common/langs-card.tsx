@@ -2,15 +2,15 @@
  * @Author: Debonex
  * @Date: 2021-09-09 10:13:24
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-09 14:52:52
+ * @Last Modified time: 2021-09-10 18:05:33
  */
 
 import React, { Component } from 'react'
 import { base } from '../../themes'
 import { Theme } from '../../types'
 import { FuncGetStyle } from '../../types/func'
-import langColors from '../../utils/langColor'
-import LangsBar, { LangRatio } from './langsBar'
+import langColors from '../../assets/ts/langColor'
+import LangsBar, { LangRatio } from './langs-bar'
 
 export type LangsCardProps = {
   langDict: Record<string, number>
@@ -87,7 +87,7 @@ const getStyles: FuncGetStyle = (theme?: Theme) => {
     },
     containerBadge: {
       display: 'flex',
-      marginTop: 10,
+      marginTop: 12,
       minWidth: '50%',
       fontSize: 12,
       alignItems: 'center'

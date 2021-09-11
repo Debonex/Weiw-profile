@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-09-03 13:03:21
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-04 00:30:09
+ * @Last Modified time: 2021-09-10 18:25:53
  */
 
 import { CSSProperties } from 'react'
@@ -13,12 +13,16 @@ declare module 'react' {
   }
 }
 
+declare module '*.svg' {
+  import React from 'react'
+  export const ReactComponent: React.FC<React.SVGProps<SVGSVGElement>>
+  const src: string
+  export default src
+}
+
 export type Theme = {
   fontFamily?: string
   colorText: string
-  baseInfo: {
-    bgColorMain: string
-    bgColorTitle: string
-    colorTitle?: string
-  }
+  bgColorMain: string
+  bgColorTitle: string
 }
