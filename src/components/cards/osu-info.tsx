@@ -2,13 +2,14 @@
  * @Author: Debonex
  * @Date: 2021-09-10 11:50:58
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-10 16:25:45
+ * @Last Modified time: 2021-09-11 15:29:16
  */
 
 import { Component } from 'react'
 import { base } from '../../themes'
 import { Theme } from '../../types'
 import { FuncGetStyle } from '../../types/func'
+import GradeBadge from '../common/osu-grade-badge'
 
 export type OsuInfoProps = {
   username: string
@@ -34,37 +35,81 @@ export const defaultOsuInfoProps: OsuInfoProps = {
   scoresRecent: []
 }
 
+class RencentPlay extends Component<{ scoresRecent: Array<any> }> {
+  render() {
+    const _ = getStyles()
+    const play = this.props.scoresRecent[0] ?? null
+    return (
+      <div style={_.containerRecentPlay}>
+        <div style={_.rencentPlayCut} />
+        {play ? (
+          <div style={_.containerPlay}>
+            <GradeBadge height={16} width={32} grade={play.rank}></GradeBadge>
+            <div style={{ flexGrow: 1, paddingLeft: 16 }}>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <div style={{ fontSize: 14 }}>
+                  {play.beatmapset.title_unicode}
+                </div>
+                <div style={_.creator}>by {play.beatmapset.creator}</div>
+                <div style={_.pp}>{play.pp?.toFixed(0) ?? '0'}pp</div>
+              </div>
+              <div style={{ display: 'flex', marginTop: 4 }}>
+                <div style={{ color: '#ffcc22', fontSize: 12 }}>
+                  {play.beatmap.version}
+                </div>
+                <div style={_.accuracy}>
+                  {(play.accuracy * 100).toFixed(2)}%
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <span style={{ fontSize: 12 }}>No recent play.</span>
+        )}
+      </div>
+    )
+  }
+}
+
 class OsuInfo extends Component<OsuInfoProps> {
   render() {
     const _ = getStyles()
     return (
       <div style={_.containerMain}>
         <div style={_.containerHeader}>Osu! info</div>
-        <div style={_.containerBody}>
-          <div style={_.bodyLeft}>
+        <div style={{ display: 'flex' }}>
+          <div style={{ padding: 16 }}>
             <img style={_.avatarImg} src={this.props.avatarUrl} alt="" />
-            <div style={_.bodyLeftInfo}>
-              <div style={{ fontSize: 24 }}>{this.props.username}</div>
-            </div>
           </div>
 
-          <div style={_.bodyRight}>
-            <div style={_.containerInfoItems}>
-              <div style={_.infoItem}>
-                <div
-                  style={{ ..._.infoItemBefore, backgroundColor: '#ff66ab' }}
-                />
-                <div style={_.infoItemLabel}>Global Ranking</div>
-                <div style={_.infoItemText}># {this.props.globalRank}</div>
-              </div>
-              <div style={_.infoItem}>
-                <div
-                  style={{ ..._.infoItemBefore, backgroundColor: '#ed1221' }}
-                />
-                <div style={_.infoItemLabel}>PP</div>
-                <div style={_.infoItemText}>{this.props.pp}</div>
+          <div style={{ flexGrow: 1, paddingTop: 16 }}>
+            <div style={{ display: 'flex' }}>
+              <div style={{ fontSize: 24 }}>{this.props.username}</div>
+              <div style={_.containerInfoItems}>
+                <div style={_.infoItem}>
+                  <div
+                    style={{ ..._.infoItemBefore, backgroundColor: '#ff66ab' }}
+                  />
+                  <div style={_.infoItemLabel}>Global Ranking</div>
+                  <div style={_.infoItemText}># {this.props.globalRank}</div>
+                </div>
+                <div style={_.infoItem}>
+                  <div
+                    style={{ ..._.infoItemBefore, backgroundColor: '#ed1221' }}
+                  />
+                  <div style={_.infoItemLabel}>PP</div>
+                  <div style={_.infoItemText}>{this.props.pp}</div>
+                </div>
+                <div style={_.infoItem}>
+                  <div
+                    style={{ ..._.infoItemBefore, backgroundColor: '#b3d944' }}
+                  />
+                  <div style={_.infoItemLabel}>Mode</div>
+                  <div style={_.infoItemText}>{this.props.playmode}</div>
+                </div>
               </div>
             </div>
+            <RencentPlay scoresRecent={this.props.scoresRecent} />
           </div>
         </div>
       </div>
@@ -90,30 +135,15 @@ const getStyles: FuncGetStyle = (theme?: Theme) => {
       fontSize: 20,
       color: theme.colorText
     },
-    containerBody: {
-      display: 'flex',
-      padding: 16
-    },
-    bodyLeft: {
-      width: '50%',
-      display: 'flex'
-    },
-    bodyLeftInfo: {
-      display: 'flex',
-      flexDirection: 'column',
-      paddingLeft: 16
-    },
     avatarImg: {
       width: 112,
       height: 112,
       borderRadius: 12
     },
-    bodyRight: {
-      width: '50%',
-      paddingLeft: 16
-    },
     containerInfoItems: {
-      display: 'flex'
+      display: 'flex',
+      width: 300,
+      marginLeft: 'auto'
     },
     infoItem: {
       display: 'flex',
@@ -131,6 +161,31 @@ const getStyles: FuncGetStyle = (theme?: Theme) => {
     infoItemText: {
       fontSize: 18,
       fontWeight: 300
+    },
+    containerRecentPlay: {
+      display: 'flex',
+      flexDirection: 'column',
+      marginTop: 16,
+      marginRight: 16,
+      borderRadius: 4,
+      backgroundColor: theme.bgColorTitle
+    },
+    rencentPlayCut: {
+      height: 2,
+      backgroundColor: '#02B5C3'
+    },
+    containerPlay: {
+      display: 'flex',
+      alignItems: 'center',
+      padding: '4px 12px'
+    },
+    creator: { fontSize: 12, fontWeight: 600, marginLeft: 8 },
+    pp: { fontSize: 14, fontWeight: 600, marginLeft: 'auto' },
+    accuracy: {
+      color: '#ffcc22',
+      fontSize: 14,
+      fontWeight: 600,
+      marginLeft: 12
     }
   }
 }
