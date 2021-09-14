@@ -2,11 +2,10 @@
  * @Author: Debonex
  * @Date: 2021-09-10 11:50:58
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-11 15:29:16
+ * @Last Modified time: 2021-09-14 10:32:24
  */
 
-import { Component } from 'react'
-import { base } from '../../themes'
+import themes from '../../themes'
 import { Theme } from '../../types'
 import { FuncGetStyle } from '../../types/func'
 import GradeBadge from '../common/osu-grade-badge'
@@ -35,90 +34,84 @@ export const defaultOsuInfoProps: OsuInfoProps = {
   scoresRecent: []
 }
 
-class RencentPlay extends Component<{ scoresRecent: Array<any> }> {
-  render() {
-    const _ = getStyles()
-    const play = this.props.scoresRecent[0] ?? null
-    return (
-      <div style={_.containerRecentPlay}>
-        <div style={_.rencentPlayCut} />
-        {play ? (
-          <div style={_.containerPlay}>
-            <GradeBadge height={16} width={32} grade={play.rank}></GradeBadge>
-            <div style={{ flexGrow: 1, paddingLeft: 16 }}>
-              <div style={{ display: 'flex', alignItems: 'center' }}>
-                <div style={{ fontSize: 14 }}>
-                  {play.beatmapset.title_unicode}
-                </div>
-                <div style={_.creator}>by {play.beatmapset.creator}</div>
-                <div style={_.pp}>{play.pp?.toFixed(0) ?? '0'}pp</div>
+function RecentPlay(props: { scoresRecent: Array<any> }) {
+  const _ = getStyles()
+  const play = props.scoresRecent[0] ?? null
+  return (
+    <div style={_.containerRecentPlay}>
+      <div style={_.rencentPlayCut} />
+      {play ? (
+        <div style={_.containerPlay}>
+          <GradeBadge height={16} width={32} grade={play.rank}></GradeBadge>
+          <div style={{ flexGrow: 1, paddingLeft: 16 }}>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <div style={{ fontSize: 14 }}>
+                {play.beatmapset.title_unicode}
               </div>
-              <div style={{ display: 'flex', marginTop: 4 }}>
-                <div style={{ color: '#ffcc22', fontSize: 12 }}>
-                  {play.beatmap.version}
-                </div>
-                <div style={_.accuracy}>
-                  {(play.accuracy * 100).toFixed(2)}%
-                </div>
-              </div>
+              <div style={_.creator}>by {play.beatmapset.creator}</div>
+              <div style={_.pp}>{play.pp?.toFixed(0) ?? '0'}pp</div>
             </div>
-          </div>
-        ) : (
-          <span style={{ fontSize: 12 }}>No recent play.</span>
-        )}
-      </div>
-    )
-  }
-}
-
-class OsuInfo extends Component<OsuInfoProps> {
-  render() {
-    const _ = getStyles()
-    return (
-      <div style={_.containerMain}>
-        <div style={_.containerHeader}>Osu! info</div>
-        <div style={{ display: 'flex' }}>
-          <div style={{ padding: 16 }}>
-            <img style={_.avatarImg} src={this.props.avatarUrl} alt="" />
-          </div>
-
-          <div style={{ flexGrow: 1, paddingTop: 16 }}>
-            <div style={{ display: 'flex' }}>
-              <div style={{ fontSize: 24 }}>{this.props.username}</div>
-              <div style={_.containerInfoItems}>
-                <div style={_.infoItem}>
-                  <div
-                    style={{ ..._.infoItemBefore, backgroundColor: '#ff66ab' }}
-                  />
-                  <div style={_.infoItemLabel}>Global Ranking</div>
-                  <div style={_.infoItemText}># {this.props.globalRank}</div>
-                </div>
-                <div style={_.infoItem}>
-                  <div
-                    style={{ ..._.infoItemBefore, backgroundColor: '#ed1221' }}
-                  />
-                  <div style={_.infoItemLabel}>PP</div>
-                  <div style={_.infoItemText}>{this.props.pp}</div>
-                </div>
-                <div style={_.infoItem}>
-                  <div
-                    style={{ ..._.infoItemBefore, backgroundColor: '#b3d944' }}
-                  />
-                  <div style={_.infoItemLabel}>Mode</div>
-                  <div style={_.infoItemText}>{this.props.playmode}</div>
-                </div>
+            <div style={{ display: 'flex', marginTop: 4 }}>
+              <div style={{ color: '#ffcc22', fontSize: 12 }}>
+                {play.beatmap.version}
               </div>
+              <div style={_.accuracy}>{(play.accuracy * 100).toFixed(2)}%</div>
             </div>
-            <RencentPlay scoresRecent={this.props.scoresRecent} />
           </div>
         </div>
+      ) : (
+        <span style={{ fontSize: 12 }}>No recent play.</span>
+      )}
+    </div>
+  )
+}
+
+function OsuInfo(props: OsuInfoProps) {
+  const _ = getStyles()
+  return (
+    <div style={_.containerMain}>
+      <div style={_.containerHeader}>Osu! info</div>
+      <div style={{ display: 'flex' }}>
+        <div style={{ padding: 16 }}>
+          <img style={_.avatarImg} src={props.avatarUrl} alt="" />
+        </div>
+
+        <div style={{ flexGrow: 1, paddingTop: 16 }}>
+          <div style={{ display: 'flex' }}>
+            <div style={{ fontSize: 24 }}>{props.username}</div>
+            <div style={_.containerInfoItems}>
+              <div style={_.infoItem}>
+                <div
+                  style={{ ..._.infoItemBefore, backgroundColor: '#ff66ab' }}
+                />
+                <div style={_.infoItemLabel}>Global Ranking</div>
+                <div style={_.infoItemText}># {props.globalRank}</div>
+              </div>
+              <div style={_.infoItem}>
+                <div
+                  style={{ ..._.infoItemBefore, backgroundColor: '#ed1221' }}
+                />
+                <div style={_.infoItemLabel}>PP</div>
+                <div style={_.infoItemText}>{props.pp}</div>
+              </div>
+              <div style={_.infoItem}>
+                <div
+                  style={{ ..._.infoItemBefore, backgroundColor: '#b3d944' }}
+                />
+                <div style={_.infoItemLabel}>Mode</div>
+                <div style={_.infoItemText}>{props.playmode}</div>
+              </div>
+            </div>
+          </div>
+          <RecentPlay scoresRecent={props.scoresRecent} />
+        </div>
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 const getStyles: FuncGetStyle = (theme?: Theme) => {
-  !theme && (theme = base)
+  !theme && (theme = themes.base)
   return {
     containerMain: {
       backgroundColor: theme.bgColorMain,

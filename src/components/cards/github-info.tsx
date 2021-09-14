@@ -2,11 +2,10 @@
  * @Author: Debonex
  * @Date: 2021-09-03 23:45:41
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-12 02:40:37
+ * @Last Modified time: 2021-09-14 10:27:19
  */
 
-import { Component } from 'react'
-import { base } from '../../themes'
+import themes from '../../themes'
 import { Theme } from '../../types'
 import { FuncGetStyle } from '../../types/func'
 import LangsCard from '../common/langs-card'
@@ -27,32 +26,30 @@ export const defaultGithubInfoProps: GithubInfoProps = {
   langDict: {}
 }
 
-class GithubInfo extends Component<GithubInfoProps> {
-  render() {
-    const _ = getStyles()
-    return (
-      <div style={_.containerMain}>
-        <div style={_.containerHeader}>Github info</div>
-        <div style={_.containerBody}>
-          <div style={_.bodyLeft}>
-            <img style={_.avatarImg} src={this.props.avatarUrl} alt="" />
-            <div style={_.bodyLeftInfo}>
-              <div style={_.username}>{this.props.githubUsername}</div>
-              <div style={_.bio}>{this.props.bio}</div>
-            </div>
-          </div>
-          <div style={_.bodyRight}>
-            <LangsCard langDict={this.props.langDict} />
+function GithubInfo(props: GithubInfoProps) {
+  const _ = getStyles()
+  return (
+    <div style={_.containerMain}>
+      <div style={_.containerHeader}>Github info</div>
+      <div style={_.containerBody}>
+        <div style={_.bodyLeft}>
+          <img style={_.avatarImg} src={props.avatarUrl} alt="" />
+          <div style={_.bodyLeftInfo}>
+            <div style={_.username}>{props.githubUsername}</div>
+            <div style={_.bio}>{props.bio}</div>
           </div>
         </div>
+        <div style={_.bodyRight}>
+          <LangsCard langDict={props.langDict} />
+        </div>
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 // #region styles
 const getStyles: FuncGetStyle = (theme?: Theme) => {
-  !theme && (theme = base)
+  !theme && (theme = themes.base)
   return {
     containerMain: {
       backgroundColor: theme.bgColorMain,
