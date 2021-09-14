@@ -2,11 +2,10 @@
  * @Author: Debonex
  * @Date: 2021-09-03 13:01:51
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-12 02:40:48
+ * @Last Modified time: 2021-09-14 10:24:33
  */
 
-import { Component } from 'react'
-import { base } from '../themes'
+import themes from '../themes'
 import { Theme } from '../types'
 import { FuncGetStyle } from '../types/func'
 
@@ -17,7 +16,7 @@ import GithubInfo, {
 import OsuInfo, { defaultOsuInfoProps, OsuInfoProps } from './cards/osu-info'
 
 const getStyles: FuncGetStyle = (theme?: Theme) => {
-  !theme && (theme = base)
+  !theme && (theme = themes.base)
   return {
     global: {
       fontFamily: theme.fontFamily,
@@ -46,39 +45,29 @@ export const defaultProfileProps: ProfileProps = {
   osuInfo: defaultOsuInfoProps
 }
 
-class Profile extends Component<ProfileProps, { height: number }> {
-  constructor(props: ProfileProps) {
-    super(props)
-    let height = 0
-    if (props.githubInfoShow) height += 200
-    if (props.osuInfoShow) height += 200
-    this.state = {
-      height: height
-    }
-  }
-
-  render() {
-    const styles = getStyles()
-    return (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width={this.props.width}
-        height={this.state.height}
-        style={styles.global}>
-        <foreignObject width="100%" height="100%">
-          <div xmlns="http://www.w3.org/1999/xhtml">
-            {!!this.props.githubInfoShow &&
-              this.props.githubInfoShow !== 'false' && (
-                <GithubInfo {...this.props.githubInfo} />
-              )}
-            {!!this.props.osuInfoShow && this.props.osuInfoShow !== 'false' && (
-              <OsuInfo {...this.props.osuInfo} />
-            )}
-          </div>
-        </foreignObject>
-      </svg>
-    )
-  }
+function Profile(props: ProfileProps) {
+  let height = 0
+  if (props.githubInfoShow) height += 200
+  if (props.osuInfoShow) height += 200
+  const _ = getStyles()
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={props.width}
+      height={height}
+      style={_.global}>
+      <foreignObject width="100%" height="100%">
+        <div xmlns="http://www.w3.org/1999/xhtml">
+          {!!props.githubInfoShow && props.githubInfoShow !== 'false' && (
+            <GithubInfo {...props.githubInfo} />
+          )}
+          {!!props.osuInfoShow && props.osuInfoShow !== 'false' && (
+            <OsuInfo {...props.osuInfo} />
+          )}
+        </div>
+      </foreignObject>
+    </svg>
+  )
 }
 
 export default Profile
