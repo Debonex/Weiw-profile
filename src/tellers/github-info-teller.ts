@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-09-04 00:52:13
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-12 02:40:24
+ * @Last Modified time: 2021-09-16 13:34:53
  */
 import { AxiosResponse } from 'axios'
 import { ProfileProps } from '../components/profile'
@@ -13,7 +13,7 @@ export async function tellGithubInfo(
 ): Promise<boolean> {
   if (!profileProps.githubInfoShow) return true
   profileProps.githubInfo.githubUsername = profileProps.githubUsername
-  
+
   const leftInfo = githubAPI
     .get(`/users/${profileProps.githubUsername}`)
     .then((res) => {
@@ -26,6 +26,9 @@ export async function tellGithubInfo(
     .then((base64) => {
       profileProps.githubInfo.avatarUrl = `data:image/png;base64,${base64}`
       return true
+    })
+    .catch((e) => {
+      return false
     })
 
   const topLangs = githubAPI
@@ -53,6 +56,9 @@ export async function tellGithubInfo(
           return true
         })
       } else return false
+    })
+    .catch((e) => {
+      return false
     })
 
   return Promise.all([leftInfo, topLangs]).then((results) => {
