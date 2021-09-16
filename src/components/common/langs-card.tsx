@@ -2,11 +2,11 @@
  * @Author: Debonex
  * @Date: 2021-09-09 10:13:24
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-10 18:05:33
+ * @Last Modified time: 2021-09-16 14:58:28
  */
 
 import React, { Component } from 'react'
-import { base } from '../../themes'
+import themes from '../../themes'
 import { Theme } from '../../types'
 import { FuncGetStyle } from '../../types/func'
 import langColors from '../../assets/ts/langColor'
@@ -74,7 +74,7 @@ class LangsCard extends Component<
 }
 
 const getStyles: FuncGetStyle = (theme?: Theme) => {
-  !theme && (theme = base)
+  !theme && (theme = themes.base)
   return {
     containerMain: {
       display: 'flex',
