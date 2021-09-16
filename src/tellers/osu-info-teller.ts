@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-09-10 11:50:26
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-10 15:12:37
+ * @Last Modified time: 2021-09-16 13:30:55
  */
 
 import { parse } from 'node-html-parser'
@@ -41,5 +41,8 @@ export async function tellOsuInfo(
 
         return true
       } else return false
+    })
+    .catch((e) => {
+      return false
     })
 }

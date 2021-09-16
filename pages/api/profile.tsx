@@ -2,12 +2,13 @@
  * @Author: Debonex
  * @Date: 2021-09-03 13:02:32
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-10 13:45:24
+ * @Last Modified time: 2021-09-16 13:36:40
  */
 
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { renderToString } from 'react-dom/server'
 
+import ProfileError from '../../src/components/profile-error'
 import Profile, {
   defaultProfileProps,
   ProfileProps
@@ -22,9 +23,11 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const promiseOsuInfo = tellOsuInfo(profileProps)
 
   Promise.all([promiseGithubInfo, promiseOsuInfo]).then((results) => {
-    if (results[0] && results[1])
+    if (results[0] && results[1]) {
       res.status(200).end(renderToString(<Profile {...profileProps}></Profile>))
-    else res.end('something wrong.')
+    } else {
+      res.status(200).end(renderToString(<ProfileError />))
+    }
   })
 }
 
