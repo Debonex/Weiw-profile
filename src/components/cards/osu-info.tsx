@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-09-10 11:50:58
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-14 10:32:24
+ * @Last Modified time: 2021-09-25 18:35:32
  */
 
 import themes from '../../themes'
@@ -131,7 +131,10 @@ const getStyles: FuncGetStyle = (theme?: Theme) => {
     avatarImg: {
       width: 112,
       height: 112,
-      borderRadius: 12
+      borderRadius: 12,
+      animationName: 'fade-in',
+      animationDuration: '1000ms',
+      animationFillMode: 'forwards'
     },
     containerInfoItems: {
       display: 'flex',
@@ -145,7 +148,10 @@ const getStyles: FuncGetStyle = (theme?: Theme) => {
     },
     infoItemBefore: {
       height: 2,
-      marginBottom: 2
+      marginBottom: 2,
+      animationName: 'width-in',
+      animationDuration: '400ms',
+      animationFillMode: 'forwards'
     },
     infoItemLabel: {
       fontSize: 12,
@@ -161,7 +167,10 @@ const getStyles: FuncGetStyle = (theme?: Theme) => {
       marginTop: 16,
       marginRight: 16,
       borderRadius: 4,
-      backgroundColor: theme.bgColorTitle
+      backgroundColor: theme.bgColorTitle,
+      animationName: 'fade-in',
+      animationDuration: '1000ms',
+      animationFillMode: 'forwards'
     },
     rencentPlayCut: {
       height: 2,

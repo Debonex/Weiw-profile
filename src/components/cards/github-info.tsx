@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-09-03 23:45:41
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-14 10:27:19
+ * @Last Modified time: 2021-09-25 18:37:01
  */
 
 import themes from '../../themes'
@@ -73,7 +73,10 @@ const getStyles: FuncGetStyle = (theme?: Theme) => {
     avatarImg: {
       width: 112,
       height: 112,
-      borderRadius: 12
+      borderRadius: 12,
+      animationName: 'fade-in',
+      animationDuration: '1000ms',
+      animationFillMode: 'forwards'
     },
     bodyLeft: {
       width: '50%',
