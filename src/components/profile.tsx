@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-09-03 13:01:51
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-25 18:35:44
+ * @Last Modified time: 2021-10-04 23:12:07
  */
 
 import themes from '../themes'
@@ -12,8 +12,8 @@ import { FuncGetStyle } from '../types/func'
 import GithubInfo, {
   GithubInfoProps,
   defaultGithubInfoProps
-} from './cards/github-info'
-import OsuInfo, { defaultOsuInfoProps, OsuInfoProps } from './cards/osu-info'
+} from './cards/github'
+import OsuInfo, { defaultOsuInfoProps, OsuInfoProps } from './cards/osu'
 import cssRaw from '!!raw-loader!../styles/keyframes.module.css'
 
 const getStyles: FuncGetStyle = (theme?: Theme) => {

@@ -2,13 +2,13 @@
  * @Author: Debonex
  * @Date: 2021-09-04 00:52:13
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-16 13:34:53
+ * @Last Modified time: 2021-10-04 23:11:22
  */
 import { AxiosResponse } from 'axios'
 import { ProfileProps } from '../components/profile'
 import { githubAPI, urlToBase64 } from '../utils/requests'
 
-export async function tellGithubInfo(
+export async function githubTeller(
   profileProps: ProfileProps
 ): Promise<boolean> {
   if (!profileProps.githubInfoShow) return true

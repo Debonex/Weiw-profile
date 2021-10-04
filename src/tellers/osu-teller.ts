@@ -2,14 +2,14 @@
  * @Author: Debonex
  * @Date: 2021-09-10 11:50:26
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-16 13:30:55
+ * @Last Modified time: 2021-10-04 23:11:34
  */
 
 import { parse } from 'node-html-parser'
 import { ProfileProps } from '../components/profile'
 import { commonRequests, urlToBase64 } from '../utils/requests'
 
-export async function tellOsuInfo(
+export async function osuTeller(
   profileProps: ProfileProps
 ): Promise<boolean> {
   if (!profileProps.osuInfoShow) return true

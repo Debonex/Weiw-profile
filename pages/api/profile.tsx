@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-09-03 13:02:32
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-16 13:36:40
+ * @Last Modified time: 2021-10-04 23:11:37
  */
 
 import type { NextApiRequest, NextApiResponse } from 'next'
@@ -13,14 +13,14 @@ import Profile, {
   defaultProfileProps,
   ProfileProps
 } from '../../src/components/profile'
-import { tellGithubInfo } from '../../src/tellers/github-info-teller'
-import { tellOsuInfo } from '../../src/tellers/osu-info-teller'
+import { githubTeller } from '../../src/tellers/github-teller'
+import { osuTeller } from '../../src/tellers/osu-teller'
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const profileProps: ProfileProps = { ...defaultProfileProps, ...req.query }
 
-  const promiseGithubInfo = tellGithubInfo(profileProps)
-  const promiseOsuInfo = tellOsuInfo(profileProps)
+  const promiseGithubInfo = githubTeller(profileProps)
+  const promiseOsuInfo = osuTeller(profileProps)
 
   Promise.all([promiseGithubInfo, promiseOsuInfo]).then((results) => {
     if (results[0] && results[1]) {

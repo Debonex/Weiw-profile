@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-09-03 23:45:41
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-25 18:37:01
+ * @Last Modified time: 2021-10-04 23:12:33
  */
 
 import themes from '../../themes'
@@ -30,7 +30,7 @@ function GithubInfo(props: GithubInfoProps) {
   const _ = getStyles()
   return (
     <div style={_.containerMain}>
-      <div style={_.containerHeader}>Github info</div>
+      <div style={_.containerHeader}>Github</div>
       <div style={_.containerBody}>
         <div style={_.bodyLeft}>
           <img style={_.avatarImg} src={props.avatarUrl} alt="" />

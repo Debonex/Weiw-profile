@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-09-10 11:50:58
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-25 18:35:32
+ * @Last Modified time: 2021-10-04 23:15:59
  */
 
 import themes from '../../themes'
@@ -60,7 +60,7 @@ function RecentPlay(props: { scoresRecent: Array<any> }) {
           </div>
         </div>
       ) : (
-        <span style={{ fontSize: 12 }}>No recent play.</span>
+        <span style={{ fontSize: 12, padding: 8 }}>No recent play.</span>
       )}
     </div>
   )
@@ -70,7 +70,7 @@ function OsuInfo(props: OsuInfoProps) {
   const _ = getStyles()
   return (
     <div style={_.containerMain}>
-      <div style={_.containerHeader}>Osu! info</div>
+      <div style={_.containerHeader}>Osu!</div>
       <div style={{ display: 'flex' }}>
         <div style={{ padding: 16 }}>
           <img style={_.avatarImg} src={props.avatarUrl} alt="" />
