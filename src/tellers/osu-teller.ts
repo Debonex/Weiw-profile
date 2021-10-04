@@ -2,22 +2,32 @@
  * @Author: Debonex
  * @Date: 2021-09-10 11:50:26
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-10-04 23:11:34
+ * @Last Modified time: 2021-10-05 00:47:18
  */
 
 import { parse } from 'node-html-parser'
 import { ProfileProps } from '../components/profile'
 import { commonRequests, urlToBase64 } from '../utils/requests'
 
-export async function osuTeller(
-  profileProps: ProfileProps
-): Promise<boolean> {
+import { generateLogger } from '../utils/log'
+import { green } from 'chalk'
+const log = generateLogger('osu', '📥')
+
+export async function osuTeller(profileProps: ProfileProps): Promise<boolean> {
   if (!profileProps.osuInfoShow) return true
   profileProps.osuInfo.username = profileProps.osuUsername
 
+  log(`Start fetching base info of ${green(profileProps.osuInfo.username)}`)
+  const startTime = Date.now()
   return commonRequests
     .get(`https://osu.ppy.sh/users/${profileProps.osuUsername}`)
     .then(async (res) => {
+      log({
+        content: `Finish fetching base info of ${green(
+          profileProps.osuInfo.username
+        )}`,
+        start: startTime
+      })
       if (res.status === 200) {
         const root = parse(res.data)
         const user = JSON.parse(root.querySelector('#json-user').rawText)

@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-09-03 23:45:41
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-10-04 23:12:33
+ * @Last Modified time: 2021-10-04 23:42:15
  */
 
 import themes from '../../themes'
@@ -11,7 +11,7 @@ import { FuncGetStyle } from '../../types/func'
 import LangsCard from '../common/langs-card'
 
 export type GithubInfoProps = {
-  githubUsername: string
+  username: string
   name: string
   avatarUrl: string
   bio: string
@@ -19,7 +19,7 @@ export type GithubInfoProps = {
 }
 
 export const defaultGithubInfoProps: GithubInfoProps = {
-  githubUsername: '',
+  username: '',
   name: '',
   avatarUrl: '',
   bio: '',
@@ -35,7 +35,7 @@ function GithubInfo(props: GithubInfoProps) {
         <div style={_.bodyLeft}>
           <img style={_.avatarImg} src={props.avatarUrl} alt="" />
           <div style={_.bodyLeftInfo}>
-            <div style={_.username}>{props.githubUsername}</div>
+            <div style={_.username}>{props.username}</div>
             <div style={_.bio}>{props.bio}</div>
           </div>
         </div>
