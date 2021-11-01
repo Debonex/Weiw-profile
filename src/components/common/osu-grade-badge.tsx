@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-09-10 18:03:44
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-11 02:09:30
+ * @Last Modified time: 2021-11-01 16:29:23
  */
 
 import React, { Component } from 'react'
@@ -19,16 +19,8 @@ class GradeBadge extends Component<GradeBadgeProps> {
     const colors = osuGrades[this.props.grade].colors
     const path = osuGrades[this.props.grade].path
     return (
-      <svg
-        width={this.props.width}
-        height={this.props.height}
-        xmlns="http://www.w3.org/2000/svg">
-        <rect
-          width={this.props.width}
-          height={this.props.height}
-          rx="8"
-          fill={colors[0]}
-        />
+      <svg width={this.props.width} height={this.props.height} xmlns="http://www.w3.org/2000/svg">
+        <rect width={this.props.width} height={this.props.height} rx="8" fill={colors[0]} />
         <mask
           id="mask0"
           mask-type="alpha"
@@ -36,12 +28,7 @@ class GradeBadge extends Component<GradeBadgeProps> {
           y="0"
           width={this.props.width}
           height={this.props.height}>
-          <rect
-            width={this.props.width}
-            height={this.props.height}
-            rx="8"
-            fill="#ffffff"
-          />
+          <rect width={this.props.width} height={this.props.height} rx="8" fill="#ffffff" />
         </mask>
         <g mask="url(#mask0)">
           <path d="M16 -9L33.3205 21H-1.32051L16 -9Z" fill={colors[1]} />

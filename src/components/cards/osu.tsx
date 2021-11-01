@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-09-10 11:50:58
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-10-09 16:36:22
+ * @Last Modified time: 2021-11-01 16:34:38
  */
 
 import themes from '../../themes'
@@ -13,60 +13,58 @@ import GradeBadge from '../common/osu-grade-badge'
 export type OsuInfoProps = {
   username: string
   avatarUrl: string
-  playmode: string
+  playMode: string
   country: string
   rankHistory: Array<number>
   globalRank: number
   pp: number
   gradeCounts: { ss: number; ssh: number; s: number; sh: number; a: number }
   scoresRecent: Array<object>
+  scoresBest: Array<object>
 }
 
 export const defaultOsuInfoProps: OsuInfoProps = {
   username: '',
   avatarUrl: '',
-  playmode: 'osu',
+  playMode: 'osu',
   country: '',
   rankHistory: [],
   globalRank: 0,
   pp: 0,
   gradeCounts: { ss: 0, ssh: 0, s: 0, sh: 0, a: 0 },
-  scoresRecent: []
+  scoresRecent: [],
+  scoresBest: []
 }
 
-function RecentPlay(props: { scoresRecent: Array<any> }) {
+function PlayCard(props: { play: any; emptyText: string }) {
   const _ = getStyles()
-  const play = props.scoresRecent[0] ?? null
+  const play = props.play
   return (
-    <div style={_.containerRecentPlay}>
-      <div style={_.rencentPlayCut} />
+    <div style={_.containerPlay}>
+      <div style={_.playCut} />
       {play ? (
-        <div style={_.containerPlay}>
+        <div style={_.containerRecentPlay}>
           <GradeBadge height={16} width={32} grade={play.rank}></GradeBadge>
           <div style={{ flexGrow: 1, paddingLeft: 16 }}>
             <div style={{ display: 'flex', alignItems: 'center' }}>
-              <div style={{ fontSize: 14 }}>
-                {play.beatmapset.title_unicode}
-              </div>
+              <div style={{ fontSize: 14 }}>{play.beatmapset.title_unicode}</div>
               <div style={_.creator}>by {play.beatmapset.creator}</div>
               <div style={_.pp}>{play.pp?.toFixed(0) ?? '0'}pp</div>
             </div>
             <div style={{ display: 'flex', marginTop: 4 }}>
-              <div style={{ color: '#ffcc22', fontSize: 12 }}>
-                {play.beatmap.version}
-              </div>
+              <div style={{ color: '#ffcc22', fontSize: 12 }}>{play.beatmap.version}</div>
               <div style={_.accuracy}>{(play.accuracy * 100).toFixed(2)}%</div>
             </div>
           </div>
         </div>
       ) : (
-        <span style={{ fontSize: 12, padding: "4px 8px" }}>No recent play.</span>
+        <span style={{ fontSize: 12, padding: '4px 8px' }}>{props.emptyText}</span>
       )}
     </div>
   )
 }
 
-function OsuInfo(props: OsuInfoProps) {
+function Osu(props: OsuInfoProps) {
   const _ = getStyles()
   return (
     <div style={_.containerMain}>
@@ -80,34 +78,27 @@ function OsuInfo(props: OsuInfoProps) {
           <div style={{ display: 'flex' }}>
             <div style={{ fontSize: 24 }}>{props.username}</div>
             <div style={_.containerInfoItems}>
-              <div style={_.infoItem}>
-                <div
-                  style={{ ..._.infoItemBefore, backgroundColor: '#ff66ab' }}
-                />
-                <div style={_.infoItemLabel}>Global Ranking</div>
-                <div style={_.infoItemText}># {props.globalRank}</div>
-              </div>
-              <div style={_.infoItem}>
-                <div
-                  style={{ ..._.infoItemBefore, backgroundColor: '#ed1221' }}
-                />
-                <div style={_.infoItemLabel}>PP</div>
-                <div style={_.infoItemText}>{props.pp}</div>
-              </div>
-              <div style={_.infoItem}>
-                <div
-                  style={{ ..._.infoItemBefore, backgroundColor: '#b3d944' }}
-                />
-                <div style={_.infoItemLabel}>Mode</div>
-                <div style={_.infoItemText}>{props.playmode}</div>
-              </div>
+              <InfoItem label="Global Ranking" text={`# ${props.globalRank}`} color="#ff66ab" />
+              <InfoItem label="PP" text={`${props.pp}`} color="#ed1221" />
+              <InfoItem label="Mode" text={`${props.playMode}`} color="#b3d944" />
             </div>
           </div>
-          <RecentPlay scoresRecent={props.scoresRecent} />
+          {/* <PlayCard play={props.scoresRecent[0] ?? null} emptyText="No recent play." /> */}
+          <PlayCard play={props.scoresBest[0] ?? null} emptyText="No play." />
         </div>
       </div>
     </div>
   )
+
+  function InfoItem(props: { label: string; text: string; color: string }) {
+    return (
+      <div style={_.infoItem}>
+        <div style={{ ..._.infoItemBefore, backgroundColor: props.color }} />
+        <div style={_.infoItemLabel}>{props.label}</div>
+        <div style={_.infoItemText}>{props.text}</div>
+      </div>
+    )
+  }
 }
 
 const getStyles: FuncGetStyle = (theme?: Theme) => {
@@ -161,7 +152,7 @@ const getStyles: FuncGetStyle = (theme?: Theme) => {
       fontSize: 18,
       fontWeight: 300
     },
-    containerRecentPlay: {
+    containerPlay: {
       display: 'flex',
       flexDirection: 'column',
       marginTop: 16,
@@ -172,11 +163,11 @@ const getStyles: FuncGetStyle = (theme?: Theme) => {
       animationDuration: '1000ms',
       animationFillMode: 'forwards'
     },
-    rencentPlayCut: {
+    playCut: {
       height: 2,
       backgroundColor: '#02B5C3'
     },
-    containerPlay: {
+    containerRecentPlay: {
       display: 'flex',
       alignItems: 'center',
       padding: '4px 12px'
@@ -192,4 +183,4 @@ const getStyles: FuncGetStyle = (theme?: Theme) => {
   }
 }
 
-export default OsuInfo
+export default Osu

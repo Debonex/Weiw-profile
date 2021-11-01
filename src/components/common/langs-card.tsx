@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-09-09 10:13:24
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-16 14:58:28
+ * @Last Modified time: 2021-11-01 16:29:18
  */
 
 import React, { Component } from 'react'
@@ -17,10 +17,7 @@ export type LangsCardProps = {
   topN?: number
 }
 
-class LangsCard extends Component<
-  LangsCardProps,
-  { langRatioArr: Array<LangRatio> }
-> {
+class LangsCard extends Component<LangsCardProps, { langRatioArr: Array<LangRatio> }> {
   constructor(props: LangsCardProps) {
     super(props)
 

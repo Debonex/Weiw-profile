@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-09-03 23:45:41
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-10-04 23:42:15
+ * @Last Modified time: 2021-11-01 16:03:03
  */
 
 import themes from '../../themes'
@@ -26,7 +26,7 @@ export const defaultGithubInfoProps: GithubInfoProps = {
   langDict: {}
 }
 
-function GithubInfo(props: GithubInfoProps) {
+function Github(props: GithubInfoProps) {
   const _ = getStyles()
   return (
     <div style={_.containerMain}>
@@ -102,4 +102,4 @@ const getStyles: FuncGetStyle = (theme?: Theme) => {
 }
 // #endregion
 
-export default GithubInfo
+export default Github
