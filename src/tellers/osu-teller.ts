@@ -2,16 +2,16 @@
  * @Author: Debonex
  * @Date: 2021-09-10 11:50:26
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-10-05 00:47:18
+ * @Last Modified time: 2021-10-09 17:50:54
  */
 
 import { parse } from 'node-html-parser'
 import { ProfileProps } from '../components/profile'
 import { commonRequests, urlToBase64 } from '../utils/requests'
 
-import { generateLogger } from '../utils/log'
+import { gTellerLogger } from '../utils/log'
 import { green } from 'chalk'
-const log = generateLogger('osu', '📥')
+const log = gTellerLogger('osu', '📥')
 
 export async function osuTeller(profileProps: ProfileProps): Promise<boolean> {
   if (!profileProps.osuInfoShow) return true

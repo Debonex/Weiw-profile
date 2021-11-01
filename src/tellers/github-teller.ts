@@ -2,20 +2,21 @@
  * @Author: Debonex
  * @Date: 2021-09-04 00:52:13
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-10-05 00:49:38
+ * @Last Modified time: 2021-10-16 18:21:17
  */
 import { AxiosResponse } from 'axios'
 import { ProfileProps } from '../components/profile'
 import { githubAPI, urlToBase64 } from '../utils/requests'
 
-import { generateLogger } from '../utils/log'
+import { gTellerLogger } from '../utils/log'
 import { green } from 'chalk'
-const log = generateLogger('github', '📥')
+const log = gTellerLogger('github', '📥')
 
 export async function githubTeller(
   profileProps: ProfileProps
 ): Promise<boolean> {
-  if (!profileProps.githubInfoShow) return true
+  if (!profileProps.githubInfoShow || profileProps.githubInfoShow === 'false')
+    return true
   profileProps.githubInfo.username = profileProps.githubUsername
 
   log(`Start fetching base info of ${green(profileProps.githubInfo.username)}`)

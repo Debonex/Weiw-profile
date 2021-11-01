@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-09-10 11:50:58
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-10-04 23:15:59
+ * @Last Modified time: 2021-10-09 16:36:22
  */
 
 import themes from '../../themes'
@@ -60,7 +60,7 @@ function RecentPlay(props: { scoresRecent: Array<any> }) {
           </div>
         </div>
       ) : (
-        <span style={{ fontSize: 12, padding: 8 }}>No recent play.</span>
+        <span style={{ fontSize: 12, padding: "4px 8px" }}>No recent play.</span>
       )}
     </div>
   )
