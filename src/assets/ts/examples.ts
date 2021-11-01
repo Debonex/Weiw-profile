@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-10-09 16:58:07
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-11-01 16:28:55
+ * @Last Modified time: 2021-11-01 17:28:21
  */
 
 import { ProfileProps } from '../../components/profile'
@@ -30,8 +30,208 @@ export const exampleProps: Array<ProfileProps> = [
       globalRank: 8052,
       pp: 5496.17,
       gradeCounts: { ss: 54, ssh: 0, s: 1604, sh: 0, a: 108 },
-      scoresRecent: [],
-      scoresBest: []
+      scoresRecent: [
+        {
+          id: 379796188,
+          user_id: 259972,
+          accuracy: 0.9984169387553181,
+          mods: [],
+          score: 989698,
+          max_combo: 3679,
+          passed: true,
+          perfect: false,
+          statistics: {
+            count_50: 0,
+            count_100: 0,
+            count_300: 608,
+            count_geki: 2747,
+            count_katu: 13,
+            count_miss: 1
+          },
+          rank: 'S',
+          created_at: '2020-10-14T05:36:33+00:00',
+          best_id: 379796188,
+          pp: 1350.74,
+          mode: 'mania',
+          mode_int: 3,
+          replay: true,
+          beatmap: {
+            beatmapset_id: 800102,
+            difficulty_rating: 10.24,
+            id: 1679790,
+            mode: 'mania',
+            status: 'ranked',
+            total_length: 120,
+            user_id: 2339768,
+            version: "[7K] Jakads' LASTING LEGACY",
+            accuracy: 8.5,
+            ar: 10,
+            bpm: 252,
+            convert: false,
+            count_circles: 2313,
+            count_sliders: 1056,
+            count_spinners: 0,
+            cs: 7,
+            deleted_at: null,
+            drain: 8.5,
+            hit_length: 119,
+            is_scoreable: true,
+            last_updated: '2020-03-19T14:19:21+00:00',
+            mode_int: 3,
+            passcount: 18180,
+            playcount: 62190,
+            ranked: 1,
+            url: 'https://osu.ppy.sh/beatmaps/1679790',
+            checksum: '9a4c99e7c5c7c54ad52eb6c2029d6ac6'
+          },
+          beatmapset: {
+            artist: 'xi',
+            artist_unicode: 'xi',
+            covers: {
+              cover: 'https://assets.ppy.sh/beatmaps/800102/covers/cover.jpg?1622141978',
+              'cover@2x': 'https://assets.ppy.sh/beatmaps/800102/covers/cover@2x.jpg?1622141978',
+              card: 'https://assets.ppy.sh/beatmaps/800102/covers/card.jpg?1622141978',
+              'card@2x': 'https://assets.ppy.sh/beatmaps/800102/covers/card@2x.jpg?1622141978',
+              list: 'https://assets.ppy.sh/beatmaps/800102/covers/list.jpg?1622141978',
+              'list@2x': 'https://assets.ppy.sh/beatmaps/800102/covers/list@2x.jpg?1622141978',
+              slimcover: 'https://assets.ppy.sh/beatmaps/800102/covers/slimcover.jpg?1622141978',
+              'slimcover@2x':
+                'https://assets.ppy.sh/beatmaps/800102/covers/slimcover@2x.jpg?1622141978'
+            },
+            creator: 'Kroytz',
+            favourite_count: 821,
+            hype: null,
+            id: 800102,
+            nsfw: false,
+            play_count: 1183455,
+            preview_url: '//b.ppy.sh/preview/800102.mp3',
+            source: 'SOUND VOLTEX IV HEAVENLY HAVEN',
+            status: 'ranked',
+            title: 'Last Resort',
+            title_unicode: 'Last Resort',
+            track_id: null,
+            user_id: 2339768,
+            video: false
+          },
+          weight: { percentage: 100, pp: 1350.74 },
+          user: {
+            avatar_url: 'https://a.ppy.sh/259972?1611430997.jpeg',
+            country_code: 'KR',
+            default_group: 'default',
+            id: 259972,
+            is_active: true,
+            is_bot: false,
+            is_deleted: false,
+            is_online: false,
+            is_supporter: true,
+            last_visit: '2021-10-29T15:16:35+00:00',
+            pm_friends_only: false,
+            profile_colour: null,
+            username: 'Jakads'
+          }
+        }
+      ],
+      scoresBest: [
+        {
+          id: 379796188,
+          user_id: 259972,
+          accuracy: 0.9984169387553181,
+          mods: [],
+          score: 989698,
+          max_combo: 3679,
+          passed: true,
+          perfect: false,
+          statistics: {
+            count_50: 0,
+            count_100: 0,
+            count_300: 608,
+            count_geki: 2747,
+            count_katu: 13,
+            count_miss: 1
+          },
+          rank: 'S',
+          created_at: '2020-10-14T05:36:33+00:00',
+          best_id: 379796188,
+          pp: 1350.74,
+          mode: 'mania',
+          mode_int: 3,
+          replay: true,
+          beatmap: {
+            beatmapset_id: 800102,
+            difficulty_rating: 10.24,
+            id: 1679790,
+            mode: 'mania',
+            status: 'ranked',
+            total_length: 120,
+            user_id: 2339768,
+            version: "[7K] Jakads' LASTING LEGACY",
+            accuracy: 8.5,
+            ar: 10,
+            bpm: 252,
+            convert: false,
+            count_circles: 2313,
+            count_sliders: 1056,
+            count_spinners: 0,
+            cs: 7,
+            deleted_at: null,
+            drain: 8.5,
+            hit_length: 119,
+            is_scoreable: true,
+            last_updated: '2020-03-19T14:19:21+00:00',
+            mode_int: 3,
+            passcount: 18180,
+            playcount: 62190,
+            ranked: 1,
+            url: 'https://osu.ppy.sh/beatmaps/1679790',
+            checksum: '9a4c99e7c5c7c54ad52eb6c2029d6ac6'
+          },
+          beatmapset: {
+            artist: 'xi',
+            artist_unicode: 'xi',
+            covers: {
+              cover: 'https://assets.ppy.sh/beatmaps/800102/covers/cover.jpg?1622141978',
+              'cover@2x': 'https://assets.ppy.sh/beatmaps/800102/covers/cover@2x.jpg?1622141978',
+              card: 'https://assets.ppy.sh/beatmaps/800102/covers/card.jpg?1622141978',
+              'card@2x': 'https://assets.ppy.sh/beatmaps/800102/covers/card@2x.jpg?1622141978',
+              list: 'https://assets.ppy.sh/beatmaps/800102/covers/list.jpg?1622141978',
+              'list@2x': 'https://assets.ppy.sh/beatmaps/800102/covers/list@2x.jpg?1622141978',
+              slimcover: 'https://assets.ppy.sh/beatmaps/800102/covers/slimcover.jpg?1622141978',
+              'slimcover@2x':
+                'https://assets.ppy.sh/beatmaps/800102/covers/slimcover@2x.jpg?1622141978'
+            },
+            creator: 'Kroytz',
+            favourite_count: 821,
+            hype: null,
+            id: 800102,
+            nsfw: false,
+            play_count: 1183455,
+            preview_url: '//b.ppy.sh/preview/800102.mp3',
+            source: 'SOUND VOLTEX IV HEAVENLY HAVEN',
+            status: 'ranked',
+            title: 'Last Resort',
+            title_unicode: 'Last Resort',
+            track_id: null,
+            user_id: 2339768,
+            video: false
+          },
+          weight: { percentage: 100, pp: 1350.74 },
+          user: {
+            avatar_url: 'https://a.ppy.sh/259972?1611430997.jpeg',
+            country_code: 'KR',
+            default_group: 'default',
+            id: 259972,
+            is_active: true,
+            is_bot: false,
+            is_deleted: false,
+            is_online: false,
+            is_supporter: true,
+            last_visit: '2021-10-29T15:16:35+00:00',
+            pm_friends_only: false,
+            profile_colour: null,
+            username: 'Jakads'
+          }
+        }
+      ]
     }
   }
 ]
