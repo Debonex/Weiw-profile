@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-09-11 02:04:45
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-11 02:09:09
+ * @Last Modified time: 2021-11-01 15:08:43
  */
 export const osuGrades: Record<
   string,
@@ -100,7 +100,7 @@ export const osuGrades: Record<
       </g>
     )
   },
-  SS: {
+  X: {
     colors: ['#CE1C9D', '#DE31AE', '#C30B90', '#BE0089'],
     path: (
       <g>
