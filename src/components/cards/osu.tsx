@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-09-10 11:50:58
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-11-01 16:34:38
+ * @Last Modified time: 2021-11-02 11:25:55
  */
 
 import themes from '../../themes'
@@ -43,7 +43,7 @@ function PlayCard(props: { play: any; emptyText: string }) {
     <div style={_.containerPlay}>
       <div style={_.playCut} />
       {play ? (
-        <div style={_.containerRecentPlay}>
+        <div style={_.containerPlayInfo}>
           <GradeBadge height={16} width={32} grade={play.rank}></GradeBadge>
           <div style={{ flexGrow: 1, paddingLeft: 16 }}>
             <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -83,8 +83,17 @@ function Osu(props: OsuInfoProps) {
               <InfoItem label="Mode" text={`${props.playMode}`} color="#b3d944" />
             </div>
           </div>
-          {/* <PlayCard play={props.scoresRecent[0] ?? null} emptyText="No recent play." /> */}
-          <PlayCard play={props.scoresBest[0] ?? null} emptyText="No play." />
+          <div style={{ marginRight: 16, position: 'relative' }}>
+            <div style={{ ..._.recentControl, ..._.control }}>
+              <div style={{ paddingBottom: 2 }}>Recent play</div>
+              <PlayCard play={props.scoresRecent[0] ?? null} emptyText="No recent play." />
+            </div>
+
+            <div style={{ ..._.bestControl, ..._.control }}>
+              <div style={{ paddingBottom: 2 }}>Best play</div>
+              <PlayCard play={props.scoresBest[0] ?? null} emptyText="No play." />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -155,8 +164,6 @@ const getStyles: FuncGetStyle = (theme?: Theme) => {
     containerPlay: {
       display: 'flex',
       flexDirection: 'column',
-      marginTop: 16,
-      marginRight: 16,
       borderRadius: 4,
       backgroundColor: theme.bgColorTitle,
       animationName: 'fade-in',
@@ -167,7 +174,7 @@ const getStyles: FuncGetStyle = (theme?: Theme) => {
       height: 2,
       backgroundColor: '#02B5C3'
     },
-    containerRecentPlay: {
+    containerPlayInfo: {
       display: 'flex',
       alignItems: 'center',
       padding: '4px 12px'
@@ -179,6 +186,22 @@ const getStyles: FuncGetStyle = (theme?: Theme) => {
       fontSize: 14,
       fontWeight: 600,
       marginLeft: 12
+    },
+    control: {
+      position: 'absolute',
+      width: '100%',
+      animationDuration: '8000ms',
+      animationDelay: '1500ms',
+      animationFillMode: 'forwards',
+      animationTimingFunction: 'ease',
+      animationIterationCount: 'infinite'
+    },
+    recentControl: {
+      animationName: 'rotate-fade-in-out',
+      opacity: 0
+    },
+    bestControl: {
+      animationName: 'rotate-fade-out-in'
     }
   }
 }

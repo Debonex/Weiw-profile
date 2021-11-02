@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-10-09 16:58:07
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-11-01 17:28:21
+ * @Last Modified time: 2021-11-02 10:59:52
  */
 
 import { ProfileProps } from '../../components/profile'
@@ -32,8 +32,6 @@ export const exampleProps: Array<ProfileProps> = [
       gradeCounts: { ss: 54, ssh: 0, s: 1604, sh: 0, a: 108 },
       scoresRecent: [
         {
-          id: 379796188,
-          user_id: 259972,
           accuracy: 0.9984169387553181,
           mods: [],
           score: 989698,
@@ -53,7 +51,6 @@ export const exampleProps: Array<ProfileProps> = [
           best_id: 379796188,
           pp: 1350.74,
           mode: 'mania',
-          mode_int: 3,
           replay: true,
           beatmap: {
             beatmapset_id: 800102,
@@ -63,7 +60,7 @@ export const exampleProps: Array<ProfileProps> = [
             status: 'ranked',
             total_length: 120,
             user_id: 2339768,
-            version: "[7K] Jakads' LASTING LEGACY",
+            version: "[7K] Jakads' LASTING LEGACY (recent)",
             accuracy: 8.5,
             ar: 10,
             bpm: 252,
@@ -77,7 +74,6 @@ export const exampleProps: Array<ProfileProps> = [
             hit_length: 119,
             is_scoreable: true,
             last_updated: '2020-03-19T14:19:21+00:00',
-            mode_int: 3,
             passcount: 18180,
             playcount: 62190,
             ranked: 1,
@@ -133,8 +129,6 @@ export const exampleProps: Array<ProfileProps> = [
       ],
       scoresBest: [
         {
-          id: 379796188,
-          user_id: 259972,
           accuracy: 0.9984169387553181,
           mods: [],
           score: 989698,
@@ -164,7 +158,7 @@ export const exampleProps: Array<ProfileProps> = [
             status: 'ranked',
             total_length: 120,
             user_id: 2339768,
-            version: "[7K] Jakads' LASTING LEGACY",
+            version: "[7K] Jakads' LASTING LEGACY (best)",
             accuracy: 8.5,
             ar: 10,
             bpm: 252,
