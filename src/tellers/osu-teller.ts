@@ -2,7 +2,7 @@
  * @Author: Debonex
  * @Date: 2021-09-10 11:50:26
  * @Last Modified by: Debonex
- * @Last Modified time: 2021-11-01 16:37:13
+ * @Last Modified time: 2022-01-04 15:55:50
  */
 
 import { parse } from 'node-html-parser'
@@ -28,8 +28,11 @@ export async function osuTeller(profileProps: ProfileProps): Promise<boolean> {
       })
       if (res.status === 200) {
         const root = parse(res.data)
-        const user = JSON.parse(root.querySelector('#json-user').rawText)
-        const extras = JSON.parse(root.querySelector('#json-extras').rawText)
+        const content = JSON.parse(
+          root.querySelector('.js-react--profile-page').getAttribute('data-initial-data') as string
+        )
+        const user = content.user
+        const extras = content.extras
 
         profileProps._osuInfo = {
           ...profileProps._osuInfo,
