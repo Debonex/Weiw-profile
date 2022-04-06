@@ -1,9 +1,3 @@
-/*
- * @Author: Debonex
- * @Date: 2021-09-11 02:04:45
- * @Last Modified by: Debonex
- * @Last Modified time: 2021-11-01 16:29:02
- */
 export const osuGrades: Record<string, { colors: Array<string>; path: JSX.Element }> = {
   D: {
     colors: ['#E95353', '#FF5A5A', '#DE4949', '#D63D3D'],

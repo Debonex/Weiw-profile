@@ -1,10 +1,4 @@
-/*
- * https://github.com/ozh/github-colors
- * @Author: Debonex
- * @Date: 2021-09-09 01:32:40
- * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-09 01:46:23
- */
+// https://github.com/ozh/github-colors
 const langColors: Record<string, string> = {
   '1C Enterprise': '#814CCC',
   '4D': '#004289',

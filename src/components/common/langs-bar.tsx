@@ -1,10 +1,3 @@
-/*
- * @Author: Debonex
- * @Date: 2021-09-09 00:18:01
- * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-10 16:43:29
- */
-
 import { Component } from 'react'
 import langColors from '../../assets/ts/langColor'
 

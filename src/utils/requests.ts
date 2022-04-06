@@ -38,10 +38,10 @@ const commonInstance: AxiosInstance = axios.create({
 })
 
 export const commonRequests = {
-  get: (url: string, data = {}, config = {}): Promise<AxiosResponse> => {
+  get: (url: string, data = {}, config = {}) => {
     return commonInstance.get(url, { ...{ params: data }, ...config })
   },
-  post: (url: string, data = {}, config = {}): Promise<AxiosResponse> => {
+  post: (url: string, data = {}, config = {}) => {
     return commonInstance.post(url, data, config)
   }
 }
@@ -52,7 +52,7 @@ const githubAPIInstance: AxiosInstance = axios.create({
 })
 
 export const githubAPI = {
-  get: (url: string, data = {}, config = {}): Promise<AxiosResponse> => {
+  get: (url: string, data = {}, config = {}) => {
     const requestConfig: AxiosRequestConfig = {
       ...{ params: data },
       ...config,
@@ -60,12 +60,19 @@ export const githubAPI = {
     }
     return githubAPIInstance.get(url, requestConfig)
   },
-  post: (url: string, data = {}, config = {}): Promise<AxiosResponse> => {
+  post: (url: string, data = {}, config = {}) => {
     const requestConfig: AxiosRequestConfig = {
       ...config,
       auth
     }
     return githubAPIInstance.post(url, data, requestConfig)
+  },
+  gql: (content: string) => {
+    return githubAPIInstance.post(
+      '/graphql',
+      { query: content },
+      { headers: { Authorization: 'bearer ' + envConfig?.GITHUB_OATH } }
+    )
   }
 }
 

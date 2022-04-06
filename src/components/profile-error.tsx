@@ -1,10 +1,3 @@
-/*
- * @Author: Debonex
- * @Date: 2021-09-16 13:26:49
- * @Last Modified by: Debonex
- * @Last Modified time: 2021-11-01 16:29:32
- */
-
 import cssRaw from '!!raw-loader!../styles/profile-error.module.css'
 import cssNext from '../styles/profile-error.module.css'
 const css: Record<string, string> = {}

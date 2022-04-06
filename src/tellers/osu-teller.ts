@@ -1,10 +1,3 @@
-/*
- * @Author: Debonex
- * @Date: 2021-09-10 11:50:26
- * @Last Modified by: Debonex
- * @Last Modified time: 2022-01-04 15:55:50
- */
-
 import { parse } from 'node-html-parser'
 import { ProfileProps } from '../components/profile'
 import { commonRequests, urlToBase64 } from '../utils/requests'

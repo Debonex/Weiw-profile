@@ -1,10 +1,3 @@
-/*
- * @Author: Debonex
- * @Date: 2021-09-10 11:50:58
- * @Last Modified by: Debonex
- * @Last Modified time: 2021-11-02 11:25:55
- */
-
 import themes from '../../themes'
 import { Theme } from '../../types'
 import { FuncGetStyle } from '../../types/func'

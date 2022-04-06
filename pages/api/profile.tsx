@@ -1,18 +1,8 @@
-/*
- * @Author: Debonex
- * @Date: 2021-09-03 13:02:32
- * @Last Modified by: Debonex
- * @Last Modified time: 2021-10-04 23:11:37
- */
-
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { renderToString } from 'react-dom/server'
 
 import ProfileError from '../../src/components/profile-error'
-import Profile, {
-  defaultProfileProps,
-  ProfileProps
-} from '../../src/components/profile'
+import Profile, { defaultProfileProps, ProfileProps } from '../../src/components/profile'
 import { githubTeller } from '../../src/tellers/github-teller'
 import { osuTeller } from '../../src/tellers/osu-teller'
 

@@ -1,10 +1,3 @@
-/*
- * @Author: Debonex
- * @Date: 2021-10-09 16:58:07
- * @Last Modified by: Debonex
- * @Last Modified time: 2021-11-02 10:59:52
- */
-
 import { ProfileProps } from '../../components/profile'
 
 import { defaultProfileProps } from '../../components/profile'

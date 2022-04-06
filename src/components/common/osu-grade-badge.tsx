@@ -1,10 +1,3 @@
-/*
- * @Author: Debonex
- * @Date: 2021-09-10 18:03:44
- * @Last Modified by: Debonex
- * @Last Modified time: 2021-11-01 16:29:23
- */
-
 import React, { Component } from 'react'
 import { osuGrades } from '../../assets/ts/osuGrades'
 

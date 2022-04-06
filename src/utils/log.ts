@@ -1,9 +1,3 @@
-/*
- * @Author: Debonex
- * @Date: 2021-10-05 00:41:15
- * @Last Modified by: Debonex
- * @Last Modified time: 2021-11-01 16:30:16
- */
 import { green, yellow } from 'chalk'
 
 export function gTellerLogger(subject: string, icon: string) {
