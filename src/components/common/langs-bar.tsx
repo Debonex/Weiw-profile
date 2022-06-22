@@ -5,7 +5,7 @@ export type LangsBarProps = {
   langRatioArr: Array<LangRatio>
 }
 
-export type LangRatio = { lang: string; ratio: number }
+export type LangRatio = { lang: string; topRatio: number; totalRatio: number }
 
 class LangsBar extends Component<LangsBarProps> {
   render() {
@@ -17,7 +17,7 @@ class LangsBar extends Component<LangsBarProps> {
               key={`lang-${item.lang}`}
               style={{
                 backgroundColor: langColors[item.lang],
-                width: `${item.ratio * 100}%`,
+                width: `${item.topRatio * 100}%`,
                 height: '100%'
               }}
             />

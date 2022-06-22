@@ -15,21 +15,24 @@ class LangsCard extends Component<LangsCardProps, { langRatioArr: Array<LangRati
     super(props)
 
     const langArr: Array<{ lang: string; score: number }> = []
-    let total: number = 0
+    let total = 0
+    let topTotal = 0
     for (let lang in this.props.langDict) {
+      total += this.props.langDict[lang]
       langArr.push({ lang: lang, score: this.props.langDict[lang] })
     }
 
     langArr.sort((x, y) => y.score - x.score)
     for (let i = 0; i < langArr.length && i < 6; i++) {
-      total += langArr[i].score
+      topTotal += langArr[i].score
     }
 
     const langRatioArr: Array<LangRatio> = []
     for (let i = 0; i < langArr.length && i < 6; i++) {
       langRatioArr.push({
         lang: langArr[i].lang,
-        ratio: langArr[i].score / total
+        topRatio: topTotal === 0 ? 0 : langArr[i].score / topTotal,
+        totalRatio: total === 0 ? 0 : langArr[i].score / total
       })
     }
 
@@ -53,7 +56,7 @@ class LangsCard extends Component<LangsCardProps, { langRatioArr: Array<LangRati
                     backgroundColor: langColors[item.lang]
                   }}></div>
                 <span style={{ marginRight: 4 }}>{item.lang}</span>
-                <span>{`${(item.ratio * 100).toFixed(2)}%`}</span>
+                <span>{`${(item.totalRatio * 100).toFixed(2)}%`}</span>
               </div>
             )
           })}

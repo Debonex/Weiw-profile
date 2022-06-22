@@ -1,10 +1,3 @@
-/*
- * @Author: Debonex
- * @Date: 2021-09-03 23:29:24
- * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-14 10:24:20
- */
-
 import { Theme } from '../types'
 
 const themes: Record<string, Theme> = {

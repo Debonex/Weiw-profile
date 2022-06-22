@@ -1,17 +1,4 @@
-/*
- * requests related
- * @Author: Debonex
- * @Date: 2021-09-03 23:52:53
- * @Last Modified by: Debonex
- * @Last Modified time: 2021-09-10 16:28:52
- */
-
-import axios, {
-  AxiosBasicCredentials,
-  AxiosInstance,
-  AxiosRequestConfig,
-  AxiosResponse
-} from 'axios'
+import axios, { AxiosBasicCredentials, AxiosInstance, AxiosRequestConfig } from 'axios'
 import { IncomingMessage } from 'node:http'
 import https from 'https'
 import { config } from 'dotenv'
