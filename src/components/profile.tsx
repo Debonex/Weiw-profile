@@ -38,8 +38,8 @@ export const defaultProfileProps: ProfileProps = {
 
 function Profile(props: ProfileProps) {
   let height = 0
-  if (props.github) height += 200
-  if (props.osu) height += 200
+  if (!!props.github && props.github !== 'false') height += 200
+  if (!!props.osu && props.osu !== 'false') height += 200
   const _ = getStyles()
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width={props.width} height={height} style={_.global}>
