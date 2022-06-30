@@ -24,6 +24,7 @@ export type ProfileProps = {
   osu: string | boolean
   osuName: string
   _osuInfo: OsuInfoProps
+  theme: string
 }
 
 export const defaultProfileProps: ProfileProps = {
@@ -33,21 +34,26 @@ export const defaultProfileProps: ProfileProps = {
   _githubInfo: defaultGithubInfoProps,
   osu: false,
   osuName: '',
-  _osuInfo: defaultOsuInfoProps
+  _osuInfo: defaultOsuInfoProps,
+  theme: 'base'
 }
 
 function Profile(props: ProfileProps) {
   let height = 0
   if (!!props.github && props.github !== 'false') height += 200
   if (!!props.osu && props.osu !== 'false') height += 200
-  const _ = getStyles()
+
+  const theme = themes[props.theme] ?? themes.base
+  const _ = getStyles(theme)
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width={props.width} height={height} style={_.global}>
       <foreignObject width="100%" height="100%">
         <style type="text/css">{cssRaw}</style>
         <div xmlns="http://www.w3.org/1999/xhtml">
-          {!!props.github && props.github !== 'false' && <Github {...props._githubInfo} />}
-          {!!props.osu && props.osu !== 'false' && <Osu {...props._osuInfo} />}
+          {!!props.github && props.github !== 'false' && (
+            <Github {...props._githubInfo} theme={theme} />
+          )}
+          {!!props.osu && props.osu !== 'false' && <Osu {...props._osuInfo} theme={theme} />}
         </div>
       </foreignObject>
     </svg>

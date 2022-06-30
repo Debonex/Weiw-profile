@@ -9,6 +9,7 @@ export type GithubInfoProps = {
   avatarUrl: string
   bio: string
   langDict: Record<string, number>
+  theme: Theme
 }
 
 export const defaultGithubInfoProps: GithubInfoProps = {
@@ -16,11 +17,12 @@ export const defaultGithubInfoProps: GithubInfoProps = {
   name: '',
   avatarUrl: '',
   bio: '',
-  langDict: {}
+  langDict: {},
+  theme: themes.base
 }
 
 function Github(props: GithubInfoProps) {
-  const _ = getStyles()
+  const _ = getStyles(props.theme)
   return (
     <div style={_.containerMain}>
       <div style={_.containerHeader}>Github</div>

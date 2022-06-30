@@ -14,6 +14,7 @@ export type OsuInfoProps = {
   gradeCounts: { ss: number; ssh: number; s: number; sh: number; a: number }
   scoresRecent: Array<object>
   scoresBest: Array<object>
+  theme: Theme
 }
 
 export const defaultOsuInfoProps: OsuInfoProps = {
@@ -26,11 +27,12 @@ export const defaultOsuInfoProps: OsuInfoProps = {
   pp: 0,
   gradeCounts: { ss: 0, ssh: 0, s: 0, sh: 0, a: 0 },
   scoresRecent: [],
-  scoresBest: []
+  scoresBest: [],
+  theme: themes.base
 }
 
-function PlayCard(props: { play: any; emptyText: string }) {
-  const _ = getStyles()
+function PlayCard(props: { play: any; emptyText: string; theme: Theme }) {
+  const _ = getStyles(props.theme)
   const play = props.play
   return (
     <div style={_.containerPlay}>
@@ -58,7 +60,7 @@ function PlayCard(props: { play: any; emptyText: string }) {
 }
 
 function Osu(props: OsuInfoProps) {
-  const _ = getStyles()
+  const _ = getStyles(props.theme)
   return (
     <div style={_.containerMain}>
       <div style={_.containerHeader}>Osu!</div>
@@ -79,12 +81,20 @@ function Osu(props: OsuInfoProps) {
           <div style={{ marginRight: 16, position: 'relative' }}>
             <div style={{ ..._.recentControl, ..._.control }}>
               <div style={{ paddingBottom: 2 }}>Recent play</div>
-              <PlayCard play={props.scoresRecent[0] ?? null} emptyText="No recent play." />
+              <PlayCard
+                play={props.scoresRecent[0] ?? null}
+                emptyText="No recent play."
+                theme={props.theme}
+              />
             </div>
 
             <div style={{ ..._.bestControl, ..._.control }}>
               <div style={{ paddingBottom: 2 }}>Best play</div>
-              <PlayCard play={props.scoresBest[0] ?? null} emptyText="No play." />
+              <PlayCard
+                play={props.scoresBest[0] ?? null}
+                emptyText="No play."
+                theme={props.theme}
+              />
             </div>
           </div>
         </div>

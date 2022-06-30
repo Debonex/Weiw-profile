@@ -1,6 +1,7 @@
 import { ProfileProps } from '../../components/profile'
 
 import { defaultProfileProps } from '../../components/profile'
+import themes from '../../themes'
 
 export const exampleProps: Array<ProfileProps> = [
   {
@@ -218,7 +219,8 @@ export const exampleProps: Array<ProfileProps> = [
             username: 'Jakads'
           }
         }
-      ]
+      ],
+      theme: themes.base
     }
   }
 ]
