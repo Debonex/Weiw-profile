@@ -5,6 +5,7 @@ import { FuncGetStyle } from '../types/func'
 import Github, { GithubInfoProps, defaultGithubInfoProps } from './cards/github'
 import Osu, { defaultOsuInfoProps, OsuInfoProps } from './cards/osu'
 import cssRaw from '!!raw-loader!../styles/keyframes.module.css'
+import Majsoul, { defaultMajsoulProps, MajsoulProps } from './cards/majsoul'
 
 const getStyles: FuncGetStyle = (theme?: Theme) => {
   !theme && (theme = themes.base)
@@ -24,6 +25,8 @@ export type ProfileProps = {
   osu: string | boolean
   osuName: string
   _osuInfo: OsuInfoProps
+  majsoul: string
+  _majsoulInfo: MajsoulProps
   theme: string
 }
 
@@ -35,6 +38,8 @@ export const defaultProfileProps: ProfileProps = {
   osu: false,
   osuName: '',
   _osuInfo: defaultOsuInfoProps,
+  majsoul: '',
+  _majsoulInfo: defaultMajsoulProps,
   theme: 'base'
 }
 
@@ -42,6 +47,7 @@ function Profile(props: ProfileProps) {
   let height = 0
   if (!!props.github && props.github !== 'false') height += 200
   if (!!props.osu && props.osu !== 'false') height += 200
+  if (!!props.majsoul) height += 200
 
   const theme = themes[props.theme] ?? themes.base
   const _ = getStyles(theme)
@@ -54,6 +60,7 @@ function Profile(props: ProfileProps) {
             <Github {...props._githubInfo} theme={theme} />
           )}
           {!!props.osu && props.osu !== 'false' && <Osu {...props._osuInfo} theme={theme} />}
+          {!!props.majsoul && <Majsoul {...props._majsoulInfo} theme={theme} />}
         </div>
       </foreignObject>
     </svg>
